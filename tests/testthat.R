@@ -7,6 +7,6 @@
 # * https://testthat.r-lib.org/articles/special-files.html
 
 library(testthat)
-library(packagetemplate)
+library(authoritative)
 
-test_check("packagetemplate", stop_on_warning = FALSE)
+test_check("authoritative", stop_on_warning = FALSE)

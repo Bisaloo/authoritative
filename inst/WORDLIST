@@ -2,9 +2,7 @@ CMD
 Codecov
 Epiverse
 Lifecycle
-Mariscal
 ORCID
-Pavlich
 RECON
 Titlecase
 codecov
@@ -16,6 +14,7 @@ io
 lifecycle
 packagename
 svg
+ted
 tidyverse
 yaml
 zenodo
