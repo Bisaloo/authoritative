@@ -18,10 +18,10 @@ Parse the \code{Authors@R} field from a DESCRIPTION file into a \code{person} ob
 }
 \examples{
 # Read from a DESCRIPTION file directly
-devtools_description <- system.file("DESCRIPTION", package = "authoritative")
-authors_r_devtools <- read.dcf(devtools_description, "Authors@R")
+pkg_description <- system.file("DESCRIPTION", package = "authoritative")
+authors_r_pkg <- read.dcf(pkg_description, "Authors@R")
 
-parse_authors_r(authors_r_devtools)
+parse_authors_r(authors_r_pkg)
 
 # Read from a database of CRAN metadata
 cran_epidemiology_packages$`Authors@R` |> 
