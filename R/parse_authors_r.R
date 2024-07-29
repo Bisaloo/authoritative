@@ -15,8 +15,7 @@
 #' parse_authors_r(authors_r_devtools)
 #' 
 #' # Read from a database of CRAN metadata
-#' cran_epidemiology_packages |> 
-#'   dplyr::pull(`Authors@R`) |> 
+#' cran_epidemiology_packages$`Authors@R` |> 
 #'   parse_authors_r() |> 
 #'   head()
 #' 
