@@ -17,7 +17,8 @@ coverage](https://codecov.io/gh/Bisaloo/authoritative/branch/main/graph/badge.sv
 [![lifecycle-concept](https://raw.githubusercontent.com/reconverse/reconverse.github.io/master/images/badge-concept.svg)](https://www.reconverse.org/lifecycle.html#concept)
 <!-- badges: end -->
 
-authoritative provides functions to ….
+authoritative provides functions to clean authors names, with a focus on
+the context of R package authors.
 
 ## Installation
 
@@ -31,7 +32,17 @@ pak::pak("Bisaloo/authoritative")
 
 ## Example
 
-These examples illustrate some of the current functionalities
+These examples illustrate some of the current functionalities:
+
+``` r
+library(authoritative)
+
+pkg_description <- system.file("DESCRIPTION", package = "authoritative")
+authors_r_pkg <- read.dcf(pkg_description, "Authors@R")
+parse_authors_r(authors_r_pkg)
+#> [[1]]
+#> [1] "Hugo Gruson <hugo@data.org> [aut, cre] (<https://orcid.org/0000-0002-4094-1476>)"
+```
 
 ## Development
 
