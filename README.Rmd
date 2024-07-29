@@ -27,10 +27,7 @@ knitr::opts_chunk$set(
 [![lifecycle-concept](https://raw.githubusercontent.com/reconverse/reconverse.github.io/master/images/badge-concept.svg)](https://www.reconverse.org/lifecycle.html#concept) 
 <!-- badges: end -->
 
-{{ packagename }} provides functions to ....
-
-<!-- This sentence is optional and can be removed -->
-{{ packagename }} is developed at the [CENTER|similar](url) at the [UNIVERSITY|similar](url) as part of the [Epiverse-TRACE program](https://data.org/initiatives/epiverse/).
+{{ packagename }} provides functions to clean authors names, with a focus on the context of R package authors.
 
 ## Installation
 
@@ -44,8 +41,15 @@ pak::pak("{{ gh_repo }}")
 
 ## Example
 
-These examples illustrate some of the current functionalities
+These examples illustrate some of the current functionalities:
 
+```{r}
+library(authoritative)
+
+pkg_description <- system.file("DESCRIPTION", package = "authoritative")
+authors_r_pkg <- read.dcf(pkg_description, "Authors@R")
+parse_authors_r(authors_r_pkg)
+```
 
 ## Development
 

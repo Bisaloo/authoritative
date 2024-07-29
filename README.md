@@ -19,12 +19,6 @@ coverage](https://codecov.io/gh/Bisaloo/authoritative/branch/main/graph/badge.sv
 
 authoritative provides functions to ….
 
-<!-- This sentence is optional and can be removed -->
-
-authoritative is developed at the [CENTER\|similar](url) at the
-[UNIVERSITY\|similar](url) as part of the [Epiverse-TRACE
-program](https://data.org/initiatives/epiverse/).
-
 ## Installation
 
 You can install the development version of authoritative from
