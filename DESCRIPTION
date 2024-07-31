@@ -10,7 +10,8 @@ Description: Your package description. It must end with a period (".") and
     following format: Author et al. (2023) <doi:10.5281/zenodo.6619350>.
 License: MIT + file LICENSE
 Imports:
-    stringi
+    stringi,
+    utils
 Suggests: 
     knitr,
     rmarkdown,
