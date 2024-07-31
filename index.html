@@ -74,7 +74,7 @@
 </div>
 <!-- badges: start -->
 
-<p>authoritative provides functions to ….</p>
+<p>authoritative provides functions to clean authors names, with a focus on the context of R package authors.</p>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
@@ -86,7 +86,15 @@
 <div class="section level2">
 <h2 id="example">Example<a class="anchor" aria-label="anchor" href="#example"></a>
 </h2>
-<p>These examples illustrate some of the current functionalities</p>
+<p>These examples illustrate some of the current functionalities:</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">authoritative</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">pkg_description</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"DESCRIPTION"</span>, package <span class="op">=</span> <span class="st">"authoritative"</span><span class="op">)</span></span>
+<span><span class="va">authors_r_pkg</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/dcf.html" class="external-link">read.dcf</a></span><span class="op">(</span><span class="va">pkg_description</span>, <span class="st">"Authors@R"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/parse_authors_r.html">parse_authors_r</a></span><span class="op">(</span><span class="va">authors_r_pkg</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [[1]]</span></span>
+<span><span class="co">#&gt; [1] "Hugo Gruson &lt;hugo@data.org&gt; [aut, cre] (&lt;https://orcid.org/0000-0002-4094-1476&gt;)"</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="development">Development<a class="anchor" aria-label="anchor" href="#development"></a>
