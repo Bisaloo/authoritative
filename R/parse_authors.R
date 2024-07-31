@@ -37,7 +37,7 @@ parse_authors <- function(author_string) {
 
   authors_person <- authors_no_brackets |> 
     stringi::stri_replace_all_regex("\\s+", " ") |>
-    stringi::stri_replace_all_regex("\\bwith contributions (of|from|by)\\b", ", ") |> 
+    stringi::stri_replace_all_regex("\\bwith contributions (of|from|by)\\b:?", ", ") |> 
     stringi::stri_replace_all_regex("\\band\\b", ", ") |> 
     stringi::stri_split_regex("\\s*,\\s*") |> 
     lapply(trimws) |> 
