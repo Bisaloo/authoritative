@@ -40,7 +40,8 @@ parse_authors <- function(author_string) {
     stringi::stri_replace_all_regex("\\bwith contributions (of|from|by)\\b", ", ") |> 
     stringi::stri_replace_all_regex("\\band\\b", ", ") |> 
     stringi::stri_split_regex("\\s*,\\s*") |> 
-    lapply(trimws)
+    lapply(trimws) |> 
+    lapply(as.person)
   
   if (length(authors_person) == 1) {
     authors_person <- authors_person[[1]]
