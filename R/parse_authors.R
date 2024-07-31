@@ -25,33 +25,22 @@ parse_authors <- function(author_string) {
   
   # Sanitize input from pkgsearch / crandb
   author_string <- author_string |> 
-    stringi::stri_replace_all_regex(
-      "<U\\+([0-9A-Fa-f]+)>",
-      "\\u\1"
-    ) |> 
-    stringi::stri_unescape_unicode()
+    stringi::stri_replace_all_fixed(
+      "<U+000a>",
+      " "
+    )
   
   authors_no_brackets <- author_string |> 
     remove_brackets("(") |> 
     remove_brackets("[") |>
     remove_brackets("<")
-  
-  authors_no_brackets <- stringi::stri_replace_all_fixed(
-    authors_no_brackets,
-    "\n",
-    " "
-  )
-  
-  separators <- c(
-    "\\s*,\\s*",
-    "\\band\\b",
-    "\\bwith contributions (of|from|by)\\b"
-  )
-  
+
   authors_person <- authors_no_brackets |> 
-    stringi::stri_split_regex(paste(separators, collapse = "|")) |> 
-    lapply(trimws) |> 
-    lapply(as.person)
+    stringi::stri_replace_all_regex("\\s+", " ") |>
+    stringi::stri_replace_all_regex("\\bwith contributions\\s?(of|from|by)\\s?", ", ") |> 
+    stringi::stri_replace_all_regex("\\band\\b", ", ") |> 
+    stringi::stri_split_regex("\\s*,\\s*") |> 
+    lapply(trimws)
   
   if (length(authors_person) == 1) {
     authors_person <- authors_person[[1]]

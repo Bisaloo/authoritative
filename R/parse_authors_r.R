@@ -24,11 +24,10 @@ parse_authors_r <- function(authors_r_string) {
 
   # Sanitize input from pkgsearch / crandb
   authors_r_string <- authors_r_string |> 
-    stringi::stri_replace_all_regex(
-      "<U\\+([0-9A-Fa-f]+)>",
-      "\\u\1"
-    ) |> 
-    stringi::stri_unescape_unicode()
+    stringi::stri_replace_all_fixed(
+      "<U+000a>",
+      " "
+    )
 
   lapply(str2expression(authors_r_string), eval)
 
