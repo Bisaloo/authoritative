@@ -18,7 +18,7 @@
 #' 
 #' # Read from a database of CRAN metadata
 #' cran_epidemiology_packages$Author |> 
-#'   parse_authors()
+#'   parse_authors() |> unlist() |> unique() |> sort()
 #' 
 #' @export
 parse_authors <- function(author_string) {
@@ -36,12 +36,18 @@ parse_authors <- function(author_string) {
     remove_brackets("<")
 
   authors_person <- authors_no_brackets |> 
+    # Extra common strings
+    stringi::stri_replace_all_regex("\\bet\\.? al\\.?\\b", " ") |>
+    # Separators
     stringi::stri_replace_all_regex("\\s+", " ") |>
-    stringi::stri_replace_all_regex("\\bwith contributions (of|from|by)\\b:?", ", ") |> 
+    stringi::stri_replace_all_regex("\\b(with contributions|contributed datasets) (of|from|by)\\b:?", ", ") |> 
     stringi::stri_replace_all_regex("\\band\\b", ", ") |> 
-    stringi::stri_split_regex("\\s*,\\s*") |> 
+    stringi::stri_split_regex("\\s*(,\\s*)+") |> 
+    # Clean string boundaries
+    lapply(function(x) stringi::stri_replace_all_regex(x, "\\.$", "")) |> 
     lapply(trimws) |> 
-    lapply(as.person)
+    # For strings terminating with ","
+    lapply(function(x) setdiff(x, ""))
   
   if (length(authors_person) == 1) {
     authors_person <- authors_person[[1]]
