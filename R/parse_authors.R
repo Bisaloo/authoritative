@@ -12,13 +12,16 @@
 #' @examples
 #' # Read from a DESCRIPTION file directly
 #' utils_description <- system.file("DESCRIPTION", package = "utils")
-#' utils_matrix <- read.dcf(utils_description, "Author")
+#' utils_authors <- read.dcf(utils_description, "Author")
 #' 
-#' parse_authors(authors_matrix)
+#' parse_authors(utils_authors)
 #' 
 #' # Read from a database of CRAN metadata
 #' cran_epidemiology_packages$Author |> 
-#'   parse_authors() |> unlist() |> unique() |> sort()
+#'   parse_authors() |> 
+#'   unlist() |> 
+#'   unique() |> 
+#'   sort()
 #' 
 #' @export
 parse_authors <- function(author_string) {
