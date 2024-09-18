@@ -1,15 +1,15 @@
 Package: authoritative
-Title: Your Package Title in Titlecase
+Title: Parse and Deduplicate Author Names
 Version: 0.0.1
 Authors@R: 
     person("Hugo", "Gruson", , "hugo@data.org", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-4094-1476"))
-Description: Your package description. It must end with a period (".") and
-    include relevant bibliographical references if applicable, using the
-    following format: Author et al. (2023) <doi:10.5281/zenodo.6619350>.
+Description: Utilities to parse authors fields from DESCRIPTION files and
+    general purpose functions to deduplicate names in database, beyond the 
+    specific case of R package authors.
 License: MIT + file LICENSE
 Depends: 
-    R (>= 3.5)
+    R (>= 4.1)
 Imports:
     stringi,
     utils
