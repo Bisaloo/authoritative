@@ -43,7 +43,7 @@ parse_authors <- function(author_string) {
     stringi::stri_replace_all_regex("\\bet\\.? al\\.?\\b", " ") |>
     # Separators
     stringi::stri_replace_all_regex("\\s+", " ") |>
-    stringi::stri_replace_all_regex("\\b(with contributions|contributed datasets) (of|from|by)\\b:?", ", ") |> 
+    stringi::stri_replace_all_regex("\\b(with contributions?|contributed datasets) (of|from|by)\\b:?", ", ") |> 
     stringi::stri_replace_all_regex("\\band\\b", ", ") |> 
     stringi::stri_split_regex("\\s*(,\\s*)+") |> 
     # Clean string boundaries
