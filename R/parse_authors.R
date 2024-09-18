@@ -41,6 +41,7 @@ parse_authors <- function(author_string) {
   authors_person <- authors_no_brackets |> 
     # Extra common strings
     stringi::stri_replace_all_regex("\\bet\\.? al\\.?\\b", " ") |>
+    stringi::stri_replace_all_regex("\\b(Prof|Dr|Mr|Mrs|Ms)\\b", "") |> 
     # Separators
     stringi::stri_replace_all_regex("\\s+", " ") |>
     stringi::stri_replace_all_regex("\\b(with contributions?|contributed datasets) (of|from|by)\\b:?", ", ") |> 
