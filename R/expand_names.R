@@ -55,7 +55,7 @@ expand_names <- function(short, expanded) {
       " "
     )
   }
-  
+
   hits <- vapply(shortened, \(x) match(short, x), integer(length(short)))
 
   longest_match <- apply(as.matrix(hits), 1, function(x) {

@@ -11,7 +11,7 @@ License: MIT + file LICENSE
 URL: https://github.com/Bisaloo/authoritative
 BugReports: https://github.com/Bisaloo/authoritative/issues
 Depends: 
-    R (>= 4.1)
+    R (>= 4.1.0)
 Imports:
     stringi,
     utils
