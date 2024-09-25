@@ -31,6 +31,11 @@ expand_names <- function(short, expanded) {
       "^(\\w)[^\\s]*\\s",
       "$1 "
     ),
+    shortened_all_names = stringi::stri_replace_all_regex(
+      expanded,
+      "^(\\w)[^\\s]*\\s+(\\w)[^\\s]*(?=\\s)",
+      "$1 $2"
+    ),
     single_last_name = stringi::stri_replace_all_regex(
       expanded,
       "^((\\w)[^\\s]*(?=\\s)(\\s[^\\s]{2,}(?=\\s))+)\\s[^\\s]+$",
