@@ -10,6 +10,12 @@
 #'
 #' @export
 #'
+#' @examples
+#' expand_names(
+#'   c("W A Mozart", "Wolfgang Mozart", "Wolfgang A Mozart"),
+#'   "Wolfgang Amadeus Mozart"
+#' )
+#'
 expand_names <- function(short, expanded) {
 
   # Sort by string length to ensure match() gives priority to expanded names

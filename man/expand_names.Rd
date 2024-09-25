@@ -19,3 +19,10 @@ When you have a list \code{x}of abbreviated and non-abbreviated names and you wa
 to deduplicate them, this function can be used as \code{expand_names(x, x)}, which
 will return the most expanded version available in \code{x} for each name
 }
+\examples{
+expand_names(
+  c("W A Mozart", "Wolfgang Mozart", "Wolfgang A Mozart"),
+  "Wolfgang Amadeus Mozart"
+)
+
+}
