@@ -5,9 +5,11 @@ Authors@R:
     person("Hugo", "Gruson", , "hugo@data.org", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-4094-1476"))
 Description: Utilities to parse authors fields from DESCRIPTION files and
-    general purpose functions to deduplicate names in database, beyond the 
+    general purpose functions to deduplicate names in database, beyond the
     specific case of R package authors.
 License: MIT + file LICENSE
+URL: https://github.com/Bisaloo/authoritative
+BugReports: https://github.com/Bisaloo/authoritative/issues
 Depends: 
     R (>= 4.1)
 Imports:
