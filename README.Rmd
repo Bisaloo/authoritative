@@ -31,8 +31,13 @@ knitr::opts_chunk$set(
 
 ## Installation
 
-You can install the development version of {{ packagename }} from
-[GitHub](https://github.com/) with:
+You can install the stable version of this package from CRAN:
+
+``` r
+install.packages("{{ packagename }}")
+```
+
+or the development version from [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("pak")

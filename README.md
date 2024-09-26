@@ -11,9 +11,9 @@
 
 [![License:
 MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/license/mit/)
-[![R-CMD-check](https://github.com/Bisaloo/authoritative/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/Bisaloo/authoritative/actions/workflows/R-CMD-check.yaml)
+[![R-CMD-check](https://github.com/epiverse-connect/authoritative/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/epiverse-connect/authoritative/actions/workflows/R-CMD-check.yaml)
 [![Codecov test
-coverage](https://codecov.io/gh/Bisaloo/authoritative/branch/main/graph/badge.svg)](https://app.codecov.io/gh/Bisaloo/authoritative?branch=main)
+coverage](https://codecov.io/gh/epiverse-connect/authoritative/branch/main/graph/badge.svg)](https://app.codecov.io/gh/epiverse-connect/authoritative?branch=main)
 [![lifecycle-concept](https://raw.githubusercontent.com/reconverse/reconverse.github.io/master/images/badge-concept.svg)](https://www.reconverse.org/lifecycle.html#concept)
 <!-- badges: end -->
 
@@ -22,12 +22,17 @@ the context of R package authors.
 
 ## Installation
 
-You can install the development version of authoritative from
-[GitHub](https://github.com/) with:
+You can install the stable version of this package from CRAN:
+
+``` r
+install.packages("authoritative")
+```
+
+or the development version from [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("pak")
-pak::pak("Bisaloo/authoritative")
+pak::pak("epiverse-connect/authoritative")
 ```
 
 ## Example
@@ -56,7 +61,7 @@ package is not ready for use outside of the development team.
 ### Contributions
 
 Contributions are welcome via [pull
-requests](https://github.com/Bisaloo/authoritative/pulls).
+requests](https://github.com/epiverse-connect/authoritative/pulls).
 
 ### Related projects
 
