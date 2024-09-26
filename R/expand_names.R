@@ -1,13 +1,13 @@
 #' Expand names from abbreviated forms or initials
-#' 
+#'
 #' @param short A character vector of potentially abbreviated names
 #' @param expanded A character vector of potentially expanded names
-#' 
+#'
 #' @details
 #' When you have a list `x`of abbreviated and non-abbreviated names and you want
 #' to deduplicate them, this function can be used as `expand_names(x, x)`, which
 #' will return the most expanded version available in `x` for each name
-#' 
+#'
 #' @return A character vector with the same length as `short`
 #'
 #' @export
@@ -66,8 +66,8 @@ expand_names <- function(short, expanded) {
     }
     min(x, na.rm = TRUE)
   })
-  
+
   short[!is.na(longest_match)] <- expanded[longest_match[!is.na(longest_match)]]
-  
+
   return(short)
 }

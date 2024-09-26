@@ -11,15 +11,15 @@ download.file(
   tf
 )
 
-ctv_pkgs <- ctv::read.ctv(tf) |> 
-  purrr::pluck("packagelist", "name") 
+ctv_pkgs <- ctv::read.ctv(tf) |>
+  purrr::pluck("packagelist", "name")
 
 cran_epidemiology_packages <- ctv_pkgs |>
   purrr::map(pkgsearch::cran_package_history)
 
-cran_epidemiology_packages <- cran_epidemiology_packages |> 
+cran_epidemiology_packages <- cran_epidemiology_packages |>
   dplyr::select(
-    Package, 
+    Package,
     Version,
     `Authors@R`,
     Author,
