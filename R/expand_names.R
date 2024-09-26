@@ -7,6 +7,8 @@
 #' When you have a list `x`of abbreviated and non-abbreviated names and you want
 #' to deduplicate them, this function can be used as `expand_names(x, x)`, which
 #' will return the most expanded version available in `x` for each name
+#' 
+#' @return A character vector with the same length as `short`
 #'
 #' @export
 #'

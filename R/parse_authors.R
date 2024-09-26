@@ -5,7 +5,8 @@
 #' @param author_string A character containing the `Author` or `Maintainer` 
 #'   field from a  `DESCRIPTION` file
 #'
-#' @return A `person` object
+#' @return A character vector, or a list of character vectors of length equals
+#' to the length of `author_string`
 #' 
 #' @importFrom utils as.person
 #' 

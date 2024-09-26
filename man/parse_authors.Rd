@@ -11,7 +11,8 @@ parse_authors(author_string)
 field from a  \code{DESCRIPTION} file}
 }
 \value{
-A \code{person} object
+A character vector, or a list of character vectors of length equals
+to the length of \code{author_string}
 }
 \description{
 Parse the \code{Author} field from a DESCRIPTION file into a \code{person} object

@@ -11,8 +11,8 @@ Utilities to parse authors fields from DESCRIPTION files and general purpose fun
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://github.com/Bisaloo/authoritative}
-  \item Report bugs at \url{https://github.com/Bisaloo/authoritative/issues}
+  \item \url{https://github.com/epiverse-connect/authoritative}
+  \item Report bugs at \url{https://github.com/epiverse-connect/authoritative/issues}
 }
 
 }

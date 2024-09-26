@@ -5,7 +5,8 @@
 #' @param authors_r_string A character containing the `Authors@R` field from a 
 #'   `DESCRIPTION` file
 #'
-#' @return A `person` object
+#' @return A `person` object, or a `list` of `person` objects of length equals
+#' to the length of `authors_r_string`
 #' 
 #' @examples
 #' # Read from a DESCRIPTION file directly
@@ -15,7 +16,8 @@
 #' parse_authors_r(authors_r_pkg)
 #' 
 #' # Read from a database of CRAN metadata
-#' cran_epidemiology_packages$`Authors@R` |> 
+#' cran_epidemiology_packages |> 
+#'   subset(!is.na(`Authors@R`), `Authors@R`, drop = TRUE) |>
 #'   parse_authors_r() |> 
 #'   head()
 #' 

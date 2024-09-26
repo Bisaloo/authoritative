@@ -11,7 +11,8 @@ parse_authors_r(authors_r_string)
 \code{DESCRIPTION} file}
 }
 \value{
-A \code{person} object
+A \code{person} object, or a \code{list} of \code{person} objects of length equals
+to the length of \code{authors_r_string}
 }
 \description{
 Parse the \code{Authors@R} field from a DESCRIPTION file into a \code{person} object
@@ -24,7 +25,8 @@ authors_r_pkg <- read.dcf(pkg_description, "Authors@R")
 parse_authors_r(authors_r_pkg)
 
 # Read from a database of CRAN metadata
-cran_epidemiology_packages$`Authors@R` |> 
+cran_epidemiology_packages |> 
+  subset(!is.na(`Authors@R`), `Authors@R`, drop = TRUE) |>
   parse_authors_r() |> 
   head()
 

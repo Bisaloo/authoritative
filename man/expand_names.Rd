@@ -11,6 +11,9 @@ expand_names(short, expanded)
 
 \item{expanded}{A character vector of potentially expanded names}
 }
+\value{
+A character vector with the same length as \code{short}
+}
 \description{
 Expand names from abbreviated forms or initials
 }
