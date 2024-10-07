@@ -3,7 +3,7 @@ pkgdown: 2.1.1
 pkgdown_sha: ~
 articles:
   design-principles: design-principles.html
-last_built: 2024-09-25T17:35Z
+last_built: 2024-10-07T07:25Z
 urls:
   reference: https://epiverse-connect.github.io/authoritative/reference
   article: https://epiverse-connect.github.io/authoritative/articles
