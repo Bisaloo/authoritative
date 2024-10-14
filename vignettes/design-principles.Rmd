@@ -24,7 +24,10 @@ None of the sections are required, feel free to remove any sections not relevant
 
 ## Scope
 
-< Outline the aims of the package, potentially mention some of the key exported functions, and maybe how it links with other R packages. It is also possible to mention certain aspects that fall outside of the package's scope. >
+This package has two main functionalities:
+
+- the first is relevant to the ecosystem of R package and its analysis. It provides functions to parse and extract information from the `Author` and `Authors@R` fields from `DESCRIPTION`
+- the second is more widely relevant, beyond the specific case of R package authors. It provides general purpose functions to deduplicate and standardize author names.
 
 ## Naming conventions
 
@@ -34,14 +37,13 @@ None of the sections are required, feel free to remove any sections not relevant
 
 < Describe the data structures (i.e. vectors, `<data.frames>` or classes) that are given as input to the key functions and what data structures the functions return. The design decisions around these I/O choices could also mention how it enhances interoperability with other R packages or pipelines (e.g. with `%>%`). >
 
-
 ## Design decisions
 
 < A list of bullet points each explaining a design decision and its reasoning. >
 
 ## Dependencies
 
-< A list of dependencies used by the package with some explanation as to why they are required. Not all dependencies need to be explained and it is best to explain the key dependencies. It can be used to give context to why certain dependencies are used (e.g. "This package is expected to be used in tidyverse pipelines and as such, we consider these tidyverse packages good dependencies that will already be installed on a user's computer."). This section can also mention dependencies that are planned to be removed or added in future development. Suggested dependencies do not need to be explained unless they are unusual and may surprise developers with their inclusion. >
+This package imports stringi as a dependency. Most of the operations performed by the package are string manipulations, and stringi increases performance and readability of the code compared to base R functions.
 
 ## Development journey
 
