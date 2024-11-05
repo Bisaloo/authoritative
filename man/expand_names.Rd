@@ -28,4 +28,21 @@ expand_names(
   "Wolfgang Amadeus Mozart"
 )
 
+# Real-case application example
+# Deduplicate names in list, as described in "details"
+epi_pkg_authors <- cran_epidemiology_packages |>
+  subset(!is.na(`Authors@R`), `Authors@R`, drop = TRUE) |>
+  parse_authors_r() |> 
+  # Drop email, role, ORCID and format as string rather than person object
+  lapply(function(x) format(x, include = c("given", "family"))) |> 
+  unlist()
+
+# With all duplicates
+length(unique(epi_pkg_authors))
+
+# Deduplicate
+epi_pkg_authors_normalized <- expand_names(epi_pkg_authors, epi_pkg_authors)
+
+length(unique(epi_pkg_authors_normalized))
+
 }
