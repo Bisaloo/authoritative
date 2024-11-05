@@ -13,7 +13,7 @@
     <a href="https://epiverse-trace.github.io/" class="external-link"><img src="https://epiverse-trace.github.io/blueprints/logo_white.svg" id="logo" alt="Epiverse-TRACE"></a>
     <a class="navbar-brand me-2" href="../index.html">authoritative</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -68,7 +68,8 @@
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>A <code>person</code> object</p>
+    <p>A <code>person</code> object, or a <code>list</code> of <code>person</code> objects of length equals
+to the length of <code>authors_r_string</code></p>
     </div>
 
     <div class="section level2">
@@ -79,30 +80,139 @@
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">parse_authors_r</span><span class="op">(</span><span class="va">authors_r_pkg</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [[1]]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Hugo Gruson &lt;hugo@data.org&gt; [aut, cre] (&lt;https://orcid.org/0000-0002-4094-1476&gt;)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Hugo Gruson &lt;hugo@data.org&gt; [aut, cre, cph] (&lt;https://orcid.org/0000-0002-4094-1476&gt;)"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Read from a database of CRAN metadata</span></span></span>
-<span class="r-in"><span><span class="va">cran_epidemiology_packages</span><span class="op">$</span><span class="va">`Authors@R`</span> <span class="op">|&gt;</span> </span></span>
+<span class="r-in"><span><span class="va">cran_epidemiology_packages</span> <span class="op">|&gt;</span> </span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/base/subset.html" class="external-link">subset</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html" class="external-link">is.na</a></span><span class="op">(</span><span class="va">`Authors@R`</span><span class="op">)</span>, <span class="va">`Authors@R`</span>, drop <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>  <span class="fu">parse_authors_r</span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span> </span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [[1]]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "Thibaut Jombart [aut] (&lt;https://orcid.org/0000-0003-2226-8692&gt;)"                         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [2] "Zhian N. Kamvar &lt;zkamvar@gmail.com&gt; [aut, cre] (&lt;https://orcid.org/0000-0003-1458-7108&gt;)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [3] "Caitlin Collins [ctb]"                                                                   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [4] "Roman Lustrik [ctb]"                                                                     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [5] "Marie-Pauline Beugin [ctb]"                                                              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [6] "Brian J. Knaus [ctb]"                                                                    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [7] "Peter Solymos [ctb]"                                                                     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [8] "Vladimir Mikryukov [ctb]"                                                                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [9] "Klaus Schliep [ctb]"                                                                     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [10] "Tiago Maié [ctb]"                                                                        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [11] "Libor Morkovsky [ctb]"                                                                   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [12] "Ismail Ahmed [ctb]"                                                                      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [13] "Anne Cori [ctb]"                                                                         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [14] "Federico Calboli [ctb]"                                                                  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [15] "RJ Ewing [ctb]"                                                                          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [16] "Frédéric Michaud [ctb]"                                                                  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [17] "Rebecca DeCamp [ctb]"                                                                    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [18] "Alexandre Courtiol [ctb] (&lt;https://orcid.org/0000-0003-0637-2959&gt;)"                      </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [[2]]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "Thibaut Jombart [aut] (&lt;https://orcid.org/0000-0003-2226-8692&gt;)"                         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [2] "Zhian N. Kamvar &lt;zkamvar@gmail.com&gt; [aut, cre] (&lt;https://orcid.org/0000-0003-1458-7108&gt;)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [3] "Caitlin Collins [ctb]"                                                                   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [4] "Roman Lustrik [ctb]"                                                                     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [5] "Marie-Pauline Beugin [ctb]"                                                              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [6] "Brian J. Knaus [ctb]"                                                                    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [7] "Peter Solymos [ctb]"                                                                     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [8] "Vladimir Mikryukov [ctb]"                                                                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [9] "Klaus Schliep [ctb]"                                                                     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [10] "Tiago Maié [ctb]"                                                                        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [11] "Libor Morkovsky [ctb]"                                                                   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [12] "Ismail Ahmed [ctb]"                                                                      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [13] "Anne Cori [ctb]"                                                                         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [14] "Federico Calboli [ctb]"                                                                  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [15] "RJ Ewing [ctb]"                                                                          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [16] "Frédéric Michaud [ctb]"                                                                  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [17] "Rebecca DeCamp [ctb]"                                                                    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [18] "Alexandre Courtiol [ctb] (&lt;https://orcid.org/0000-0003-0637-2959&gt;)"                      </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [[3]]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "Thibaut Jombart [aut] (&lt;https://orcid.org/0000-0003-2226-8692&gt;)"                         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [2] "Zhian N. Kamvar &lt;zkamvar@gmail.com&gt; [aut, cre] (&lt;https://orcid.org/0000-0003-1458-7108&gt;)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [3] "Caitlin Collins [ctb]"                                                                   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [4] "Roman Lustrik [ctb]"                                                                     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [5] "Marie-Pauline Beugin [ctb]"                                                              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [6] "Brian J. Knaus [ctb]"                                                                    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [7] "Peter Solymos [ctb]"                                                                     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [8] "Vladimir Mikryukov [ctb]"                                                                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [9] "Klaus Schliep [ctb]"                                                                     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [10] "Tiago Maié [ctb]"                                                                        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [11] "Libor Morkovsky [ctb]"                                                                   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [12] "Ismail Ahmed [ctb]"                                                                      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [13] "Anne Cori [ctb]"                                                                         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [14] "Federico Calboli [ctb]"                                                                  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [15] "RJ Ewing [ctb]"                                                                          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [16] "Frédéric Michaud [ctb]"                                                                  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [17] "Rebecca DeCamp [ctb]"                                                                    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [18] "Alexandre Courtiol [ctb] (&lt;https://orcid.org/0000-0003-0637-2959&gt;)"                      </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [[4]]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "Thibaut Jombart [aut] (&lt;https://orcid.org/0000-0003-2226-8692&gt;)"                         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [2] "Zhian N. Kamvar &lt;zkamvar@gmail.com&gt; [aut, cre] (&lt;https://orcid.org/0000-0003-1458-7108&gt;)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [3] "Caitlin Collins [ctb]"                                                                   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [4] "Roman Lustrik [ctb]"                                                                     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [5] "Marie-Pauline Beugin [ctb]"                                                              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [6] "Brian J. Knaus [ctb]"                                                                    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [7] "Peter Solymos [ctb]"                                                                     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [8] "Vladimir Mikryukov [ctb]"                                                                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [9] "Klaus Schliep [ctb]"                                                                     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [10] "Tiago Maié [ctb]"                                                                        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [11] "Libor Morkovsky [ctb]"                                                                   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [12] "Ismail Ahmed [ctb]"                                                                      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [13] "Anne Cori [ctb]"                                                                         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [14] "Federico Calboli [ctb]"                                                                  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [15] "RJ Ewing [ctb]"                                                                          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [16] "Frédéric Michaud [ctb]"                                                                  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [17] "Rebecca DeCamp [ctb]"                                                                    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [18] "Alexandre Courtiol [ctb] (&lt;https://orcid.org/0000-0003-0637-2959&gt;)"                      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [19] "Lindsay V. Clark [ctb] (&lt;https://orcid.org/0000-0002-3881-9252&gt;)"                        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [20] "Pavel Dimens [ctb] (&lt;https://orcid.org/0000-0003-3823-0373&gt;)"                            </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [[5]]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "Thibaut Jombart [aut] (&lt;https://orcid.org/0000-0003-2226-8692&gt;)"                         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [2] "Zhian N. Kamvar &lt;zkamvar@gmail.com&gt; [aut, cre] (&lt;https://orcid.org/0000-0003-1458-7108&gt;)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [3] "Caitlin Collins [ctb]"                                                                   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [4] "Roman Lustrik [ctb]"                                                                     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [5] "Marie-Pauline Beugin [ctb]"                                                              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [6] "Brian J. Knaus [ctb]"                                                                    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [7] "Peter Solymos [ctb]"                                                                     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [8] "Vladimir Mikryukov [ctb]"                                                                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [9] "Klaus Schliep [ctb]"                                                                     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [10] "Tiago Maié [ctb]"                                                                        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [11] "Libor Morkovsky [ctb]"                                                                   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [12] "Ismail Ahmed [ctb]"                                                                      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [13] "Anne Cori [ctb]"                                                                         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [14] "Federico Calboli [ctb]"                                                                  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [15] "RJ Ewing [ctb]"                                                                          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [16] "Frédéric Michaud [ctb]"                                                                  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [17] "Rebecca DeCamp [ctb]"                                                                    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [18] "Alexandre Courtiol [ctb] (&lt;https://orcid.org/0000-0003-0637-2959&gt;)"                      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [19] "Lindsay V. Clark [ctb] (&lt;https://orcid.org/0000-0002-3881-9252&gt;)"                        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [20] "Pavel Dimens [ctb] (&lt;https://orcid.org/0000-0003-3823-0373&gt;)"                            </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [[6]]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "Thibaut Jombart [aut] (&lt;https://orcid.org/0000-0003-2226-8692&gt;)"                         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [2] "Zhian N. Kamvar &lt;zkamvar@gmail.com&gt; [aut, cre] (&lt;https://orcid.org/0000-0003-1458-7108&gt;)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [3] "Caitlin Collins [ctb]"                                                                   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [4] "Roman Lustrik [ctb]"                                                                     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [5] "Marie-Pauline Beugin [ctb]"                                                              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [6] "Brian J. Knaus [ctb]"                                                                    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [7] "Peter Solymos [ctb]"                                                                     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [8] "Vladimir Mikryukov [ctb]"                                                                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [9] "Klaus Schliep [ctb]"                                                                     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [10] "Tiago Maié [ctb]"                                                                        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [11] "Libor Morkovsky [ctb]"                                                                   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [12] "Ismail Ahmed [ctb]"                                                                      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [13] "Anne Cori [ctb]"                                                                         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [14] "Federico Calboli [ctb]"                                                                  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [15] "RJ Ewing [ctb]"                                                                          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [16] "Frédéric Michaud [ctb]"                                                                  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [17] "Rebecca DeCamp [ctb]"                                                                    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [18] "Alexandre Courtiol [ctb] (&lt;https://orcid.org/0000-0003-0637-2959&gt;)"                      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [19] "Lindsay V. Clark [ctb] (&lt;https://orcid.org/0000-0002-3881-9252&gt;)"                        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [20] "Pavel Dimens [ctb] (&lt;https://orcid.org/0000-0003-3823-0373&gt;)"                            </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span></span></span>
 </code></pre></div>

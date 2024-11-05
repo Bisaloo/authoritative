@@ -27,7 +27,7 @@
     <a href="https://epiverse-trace.github.io/" class="external-link"><img src="https://epiverse-trace.github.io/blueprints/logo_white.svg" id="logo" alt="Epiverse-TRACE"></a>
     <a class="navbar-brand me-2" href="../index.html">authoritative</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -92,10 +92,17 @@ None of the sections are required, feel free to remove any sections not relevant
 <div class="section level2">
 <h2 id="scope">Scope<a class="anchor" aria-label="anchor" href="#scope"></a>
 </h2>
-<p>&lt; Outline the aims of the package, potentially mention some of the
-key exported functions, and maybe how it links with other R packages. It
-is also possible to mention certain aspects that fall outside of the
-package’s scope. &gt;</p>
+<p>This package has two main functionalities:</p>
+<ul>
+<li>the first is relevant to the ecosystem of R package and its
+analysis. It provides functions to parse and extract information from
+the <code>Author</code> and <code>Authors@R</code> fields from
+<code>DESCRIPTION</code>
+</li>
+<li>the second is more widely relevant, beyond the specific case of R
+package authors. It provides general purpose functions to deduplicate
+and standardize author names.</li>
+</ul>
 </div>
 <div class="section level2">
 <h2 id="naming-conventions">Naming conventions<a class="anchor" aria-label="anchor" href="#naming-conventions"></a>
@@ -124,17 +131,10 @@ its reasoning. &gt;</p>
 <div class="section level2">
 <h2 id="dependencies">Dependencies<a class="anchor" aria-label="anchor" href="#dependencies"></a>
 </h2>
-<p>&lt; A list of dependencies used by the package with some explanation
-as to why they are required. Not all dependencies need to be explained
-and it is best to explain the key dependencies. It can be used to give
-context to why certain dependencies are used (e.g. “This package is
-expected to be used in tidyverse pipelines and as such, we consider
-these tidyverse packages good dependencies that will already be
-installed on a user’s computer.”). This section can also mention
-dependencies that are planned to be removed or added in future
-development. Suggested dependencies do not need to be explained unless
-they are unusual and may surprise developers with their inclusion.
-&gt;</p>
+<p>This package imports stringi as a dependency. Most of the operations
+performed by the package are string manipulations, and stringi increases
+performance and readability of the code compared to base R
+functions.</p>
 </div>
 <div class="section level2">
 <h2 id="development-journey">Development journey<a class="anchor" aria-label="anchor" href="#development-journey"></a>
