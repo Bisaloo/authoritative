@@ -34,3 +34,4 @@ remove_brackets(
   bracket = "["
 )
 }
+\keyword{internal}
