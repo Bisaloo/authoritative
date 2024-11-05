@@ -3,5 +3,4 @@
 export(expand_names)
 export(parse_authors)
 export(parse_authors_r)
-export(remove_brackets)
 importFrom(utils,as.person)
