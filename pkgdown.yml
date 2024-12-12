@@ -2,8 +2,9 @@ pandoc: 3.1.11
 pkgdown: 2.1.1
 pkgdown_sha: ~
 articles:
+  authoritative: authoritative.html
   design-principles: design-principles.html
-last_built: 2024-12-03T09:30Z
+last_built: 2024-12-12T18:16Z
 urls:
   reference: https://epiverse-connect.github.io/authoritative/reference
   article: https://epiverse-connect.github.io/authoritative/articles

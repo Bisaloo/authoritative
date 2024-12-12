@@ -21,7 +21,8 @@
     </button>
 
     <div id="navbar" class="collapse navbar-collapse ms-3">
-      <ul class="navbar-nav me-auto"><li class="active nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
+      <ul class="navbar-nav me-auto"><li class="nav-item"><a class="nav-link" href="../articles/authoritative.html">Get started</a></li>
+<li class="active nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles"><li><a class="dropdown-item" href="../articles/design-principles.html">Design Principles for authoritative</a></li>
@@ -81,19 +82,19 @@ elements has been stripped of their <code>bracket</code>ted content.</p>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">remove_brackets</span><span class="op">(</span></span></span>
 <span class="r-in"><span>  <span class="st">"R source code is versioned with svn (and mirrored on GitHub)"</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "R source code is versioned with svn "</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in remove_brackets("R source code is versioned with svn (and mirrored on GitHub)"):</span> could not find function "remove_brackets"</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">remove_brackets</span><span class="op">(</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"r-project.org &lt;https://r-project.org&gt;"</span>, <span class="st">"python.org &lt;https://python.org&gt;"</span><span class="op">)</span>,</span></span>
 <span class="r-in"><span>  bracket <span class="op">=</span> <span class="st">"&lt;"</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "r-project.org " "python.org "   </span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in remove_brackets(c("r-project.org &lt;https://r-project.org&gt;", "python.org &lt;https://python.org&gt;"),     bracket = "&lt;"):</span> could not find function "remove_brackets"</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">remove_brackets</span><span class="op">(</span></span></span>
 <span class="r-in"><span>  <span class="st">"Content in square bracket [is removed] in the middle of a string"</span>,</span></span>
 <span class="r-in"><span>  bracket <span class="op">=</span> <span class="st">"["</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Content in square bracket  in the middle of a string"</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in remove_brackets("Content in square bracket [is removed] in the middle of a string",     bracket = "["):</span> could not find function "remove_brackets"</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

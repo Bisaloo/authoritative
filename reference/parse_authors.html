@@ -21,7 +21,8 @@
     </button>
 
     <div id="navbar" class="collapse navbar-collapse ms-3">
-      <ul class="navbar-nav me-auto"><li class="active nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
+      <ul class="navbar-nav me-auto"><li class="nav-item"><a class="nav-link" href="../articles/authoritative.html">Get started</a></li>
+<li class="active nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles"><li><a class="dropdown-item" href="../articles/design-principles.html">Design Principles for authoritative</a></li>
@@ -82,10 +83,10 @@ to the length of <code>author_string</code></p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "R Core Team"            "contributors worldwide"</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Read from a database of CRAN metadata</span></span></span>
-<span class="r-in"><span><span class="va">cran_epidemiology_packages</span><span class="op">$</span><span class="va">Author</span> <span class="op">|&gt;</span> </span></span>
-<span class="r-in"><span>  <span class="fu">parse_authors</span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span> </span></span>
-<span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/base/unlist.html" class="external-link">unlist</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span> </span></span>
-<span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span> </span></span>
+<span class="r-in"><span><span class="va">cran_epidemiology_packages</span><span class="op">$</span><span class="va">Author</span> <span class="op">|&gt;</span></span></span>
+<span class="r-in"><span>  <span class="fu">parse_authors</span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/base/unlist.html" class="external-link">unlist</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/base/sort.html" class="external-link">sort</a></span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   [1] "A. Riebler"                                                                     </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   [2] "Aaron A. King"                                                                  </span>
