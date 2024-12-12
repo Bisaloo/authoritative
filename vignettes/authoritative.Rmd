@@ -1,0 +1,106 @@
+---
+title: "Get started with authoritative"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Get started with authoritative}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(authoritative)
+```
+
+This package has two main categories of functionality:
+
+- [Extracting R package author information](#extract-authors): 
+  Parse the `DESCRIPTION` file of R packages, or the equivalent data provided as a `data.frame` by the `{pkgsearch}` package,
+  to extract authors from the `Author` or `Authors@R` fields.
+  These features are only useful in the context of the R package ecosystem.
+- [Cleaning and deduplicating names](#clean-authors): 
+  Clean and deduplicate a list of names.
+  It can be applied to the list of R package author names extracted in the previous step,
+  but it also directly applies in other, more generic, tasks where one needs to clean and deduplicate a list of names.
+
+## Extracting R package author information {#extract-authors}
+
+R package authors can be specified in two ways in the `DESCRIPTION` file.
+
+### Extracting R package author information from the `Author` field
+
+The authors can be listed in the `Author` field, as free text. 
+However, this method is now actively discouraged by CRAN, and many R user communities, such as rOpenSci.
+
+We would for example have:
+
+```yaml
+Author: Ada Lovelace and Charles Babbage
+```
+Because this is free-text, it could be formatted in many different ways, 
+and it is hard to programmatically extract the names.
+The `parse_authors()` function provided by the package is designed to split at common delimiter and clean common extra words.
+  
+```{r}
+parse_authors("Ada Lovelace and Charles Babbage")
+parse_authors("Ada Lovelace, Charles Babbage")
+parse_authors("Ada Lovelace with contributions from Charles Babbage")
+parse_authors("Ada Lovelace, Charles Babbage, et al.")
+```
+
+### Extracting R package author information from the `Authors@R` field
+
+The authors can also be listed in `Authors@R` field as a string containing R code that generates a vector of `person` objects.
+This is the most modern and recommended way to specify authors in the `DESCRIPTION` file.
+
+```yaml
+Authors@R: c(
+  person("Ada Lovelace", role = c("aut", "cre"), email = "ada@email.com"),
+  person("Charles Babbage", role = "aut")
+)
+```
+
+```{r}
+auts <- parse_authors_r("c(
+  person('Ada Lovelace', role = c('aut', 'cre'), email = 'ada@email.com'),
+  person('Charles Babbage', role = 'aut')
+)")
+
+class(auts)
+
+str(auts)
+
+print(auts)
+```
+
+If we only want the names, we can use the `format.person()` base R function:
+
+```{r}
+format(auts, include = c("given", "family"))
+```
+
+## Cleaning and deduplicating author names {#clean-authors}
+
+We can now take the list of authors extracted from the previous step, or an independently gathered list of names, and clean and deduplicate it.
+
+### Harmonize differently abbreviated names
+
+The `expand_names()` function can be used to expand differently abbreviated names to a common form, passed in the `expanded` argument:
+
+```{r}
+expand_names(c("Ada Lovelace", "A Lovelace"), expanded = "Ada Lovelace")
+```
+
+However, a common pattern is to pass the vector to clean itself in `expanded`.
+This way, you can harmonize names to their longest form in the vector, even if you do not know the full name of all authors in advance:
+
+```{r}
+my_names <- c("Ada Lovelace", "A Lovelace", "Charles Babbage")
+expand_names(my_names, my_names)
+```
