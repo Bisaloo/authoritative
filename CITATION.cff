@@ -8,7 +8,7 @@ message: 'To cite package "authoritative" in publications use:'
 type: software
 license: MIT
 title: 'authoritative: Parse and Deduplicate Author Names'
-version: 0.0.1
+version: 0.0.0.9000
 abstract: Utilities to parse authors fields from DESCRIPTION files and general purpose
   functions to deduplicate names in database, beyond the specific case of R package
   authors.
@@ -130,7 +130,7 @@ references:
   authors:
   - family-names: Ooms
     given-names: Jeroen
-    email: jeroen@berkeley.edu
+    email: jeroenooms@gmail.com
     orcid: https://orcid.org/0000-0002-4035-0289
   - family-names: Hester
     given-names: Jim
