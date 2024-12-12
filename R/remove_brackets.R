@@ -7,7 +7,7 @@
 #' @returns A character vector of the same size of `string`, where
 #'   elements has been stripped of their `bracket`ted content.
 #'
-#' @keywords internal
+#' @dev
 #'
 #' @examples
 #' remove_brackets(
