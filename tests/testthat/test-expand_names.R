@@ -1,4 +1,15 @@
 test_that("expand_names() transforms matching names", {
+  
+  # Expanded without middle name
+  expect_identical(
+    expand_names(
+      c("W Mozart", "Wolfgang Mozart"),
+      "Wolfgang Mozart"
+    ),
+    rep_len("Wolfgang Mozart", 2)
+  )
+      
+  # Expanded ith middle name
   expect_identical(
     expand_names(
       c("W A Mozart", "Wolfgang Mozart", "Wolfgang A Mozart"),
