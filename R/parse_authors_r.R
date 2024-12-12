@@ -30,5 +30,5 @@ parse_authors_r <- function(authors_r_string) {
       " "
     )
 
-  lapply(str2expression(authors_r_string), eval)
+  do.call(c, lapply(str2expression(authors_r_string), eval))
 }
