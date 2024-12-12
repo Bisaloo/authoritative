@@ -26,7 +26,7 @@
 #'
 #' @export
 parse_authors <- function(author_string) {
-  
+
   # Sanitize input from pkgsearch / crandb
   author_string <- author_string |>
     stringi::stri_replace_all_fixed(

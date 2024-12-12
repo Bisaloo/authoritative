@@ -25,9 +25,9 @@ authors_r_pkg <- read.dcf(pkg_description, "Authors@R")
 parse_authors_r(authors_r_pkg)
 
 # Read from a database of CRAN metadata
-cran_epidemiology_packages |> 
+cran_epidemiology_packages |>
   subset(!is.na(`Authors@R`), `Authors@R`, drop = TRUE) |>
-  parse_authors_r() |> 
+  parse_authors_r() |>
   head()
 
 }
