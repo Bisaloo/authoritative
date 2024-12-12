@@ -35,6 +35,6 @@ parse_authors_r <- function(authors_r_string) {
   if (length(authors_persons) == 1) {
     authors_persons <- authors_persons[[1]]
   }
-  
+
   return(authors_persons)
 }

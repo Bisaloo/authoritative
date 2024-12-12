@@ -25,10 +25,10 @@ utils_authors <- read.dcf(utils_description, "Author")
 parse_authors(utils_authors)
 
 # Read from a database of CRAN metadata
-cran_epidemiology_packages$Author |> 
-  parse_authors() |> 
-  unlist() |> 
-  unique() |> 
+cran_epidemiology_packages$Author |>
+  parse_authors() |>
+  unlist() |>
+  unique() |>
   sort()
 
 }

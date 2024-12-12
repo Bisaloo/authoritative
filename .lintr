@@ -1,8 +1,9 @@
 linters: all_linters(
     packages = c("lintr", "etdev"),
-    pipe_consistency_linter(pipe = "%>%"),
+    line_length_linter(120),
     object_name_linter = NULL,
     implicit_integer_linter = NULL,
+    unnecessary_lambda_linter = NULL,
     extraction_operator_linter = NULL,
     todo_comment_linter = NULL,
     library_call_linter = NULL,

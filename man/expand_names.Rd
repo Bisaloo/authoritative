@@ -32,9 +32,9 @@ expand_names(
 # Deduplicate names in list, as described in "details"
 epi_pkg_authors <- cran_epidemiology_packages |>
   subset(!is.na(`Authors@R`), `Authors@R`, drop = TRUE) |>
-  parse_authors_r() |> 
+  parse_authors_r() |>
   # Drop email, role, ORCID and format as string rather than person object
-  lapply(function(x) format(x, include = c("given", "family"))) |> 
+  lapply(function(x) format(x, include = c("given", "family"))) |>
   unlist()
 
 # With all duplicates
