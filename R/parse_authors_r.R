@@ -30,5 +30,11 @@ parse_authors_r <- function(authors_r_string) {
       " "
     )
 
-  do.call(c, lapply(str2expression(authors_r_string), eval))
+  authors_persons <- lapply(str2expression(authors_r_string), eval)
+
+  if (length(authors_persons) == 1) {
+    authors_persons <- authors_persons[[1]]
+  }
+  
+  return(authors_persons)
 }
