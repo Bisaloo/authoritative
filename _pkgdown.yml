@@ -10,3 +10,13 @@ template:
 # It is also recommended to rely on selector such as `starts_with()` or
 # `ends_with()` to create this index as it is a good way to force yourself into
 # using a consistent naming convention for your functions.
+reference:
+  - title: Extracting authors
+    contents:
+      - starts_with("parse_")
+  - title: Cleaning names
+    contents:
+      - ends_with("_names")
+  - title: Datasets
+    contents:
+      - cran_epidemiology_packages
