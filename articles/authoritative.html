@@ -42,6 +42,7 @@
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
 <li><a class="dropdown-item" href="../articles/design-principles.html">Design Principles for authoritative</a></li>
+    <li><a class="dropdown-item" href="../articles/six-degrees-replication.html">Replication of David Schoch's blog post 'Six degrees of Hadley Wickham: The CRAN co-authorship network'</a></li>
   </ul>
 </li>
 <li class="nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
@@ -150,19 +151,17 @@ in the <code>DESCRIPTION</code> file.</p>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="va">auts</span><span class="op">)</span></span>
 <span><span class="co">#&gt; List of 2</span></span>
 <span><span class="co">#&gt;  $ :Class 'person'  hidden list of 1</span></span>
-<span><span class="co">#&gt;   ..$ :List of 5</span></span>
-<span><span class="co">#&gt;   .. ..$ given  : chr "Ada Lovelace"</span></span>
-<span><span class="co">#&gt;   .. ..$ family : NULL</span></span>
-<span><span class="co">#&gt;   .. ..$ role   : chr [1:2] "aut" "cre"</span></span>
-<span><span class="co">#&gt;   .. ..$ email  : chr "ada@email.com"</span></span>
-<span><span class="co">#&gt;   .. ..$ comment: NULL</span></span>
+<span><span class="co">#&gt;   ..$ :List of 4</span></span>
+<span><span class="co">#&gt;   .. ..$ given : chr "Ada Lovelace"</span></span>
+<span><span class="co">#&gt;   .. ..$ family: NULL</span></span>
+<span><span class="co">#&gt;   .. ..$ role  : chr [1:2] "aut" "cre"</span></span>
+<span><span class="co">#&gt;   .. ..$ email : chr "ada@email.com"</span></span>
 <span><span class="co">#&gt;  $ :Class 'person'  hidden list of 1</span></span>
-<span><span class="co">#&gt;   ..$ :List of 5</span></span>
-<span><span class="co">#&gt;   .. ..$ given  : chr "Charles Babbage"</span></span>
-<span><span class="co">#&gt;   .. ..$ family : NULL</span></span>
-<span><span class="co">#&gt;   .. ..$ role   : chr "aut"</span></span>
-<span><span class="co">#&gt;   .. ..$ email  : NULL</span></span>
-<span><span class="co">#&gt;   .. ..$ comment: NULL</span></span>
+<span><span class="co">#&gt;   ..$ :List of 4</span></span>
+<span><span class="co">#&gt;   .. ..$ given : chr "Charles Babbage"</span></span>
+<span><span class="co">#&gt;   .. ..$ family: NULL</span></span>
+<span><span class="co">#&gt;   .. ..$ role  : chr "aut"</span></span>
+<span><span class="co">#&gt;   .. ..$ email : NULL</span></span>
 <span><span class="co">#&gt;  - attr(*, "class")= chr "person"</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">auts</span><span class="op">)</span></span>
