@@ -15,4 +15,5 @@
 ^tools$
 ^data-raw$
 ^cran-comments\.md$
+^vignettes/articles$
 ^man/remove_brackets\.Rd$

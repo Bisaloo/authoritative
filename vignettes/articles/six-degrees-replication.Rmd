@@ -1,0 +1,108 @@
+---
+title: "Replication of David Schoch's blog post 'Six degrees of Hadley Wickham: The CRAN co-authorship network'"
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+This article aims to replicate David Schoch's analysis in his blog post ["Six degrees of Hadley Wickham: The CRAN co-authorship network"](https://blog.schochastics.net/posts/2024-01-17_six-degrees-of-hadley-wickham/index.html) using the `authoritative` package.
+
+```{r setup}
+library(authoritative)
+library(tidyverse)
+library(igraph)
+library(netUtils)
+```
+
+```{r}
+db <- tools::CRAN_package_db()
+author_pkg_cran <- db |> 
+  dplyr::transmute(
+    Package = Package,
+    parsed_authors_r = purrr::map(authoritative::parse_authors_r(`Authors@R`), format, include = c("given", "family")),
+    parsed_authors = authoritative::parse_authors(Author)
+  ) |> 
+  dplyr::mutate(
+    authorsR = coalesce(parsed_authors_r, parsed_authors),
+    authorsR = map(authorsR, stringi::stri_trans_general, "ASCII"),
+    authorsR = map(authorsR, stringr::str_replace_all, "[[:punct:]`]", " "),
+    authorsR = map(authorsR, stringr::str_replace_all, "[[:space:]]+", " "),
+    authorsR = map(authorsR, trimws),
+    .keep = "unused"
+  ) |> 
+  tidyr::unnest_longer(authorsR) |> 
+  dplyr::mutate(authorsR = authoritative::expand_names(authorsR, authorsR)) |> 
+  # Standardize capitalization
+  dplyr::mutate(
+    authorsR = stringr::str_to_title(authorsR)
+  )
+```
+
+```{r}
+# FIXME: these signal an problem in the parsing. So this should be fixed instead of dropping the values
+author_pkg_cran <- author_pkg_cran |> 
+  filter(!authorsR %in% Package)
+```
+
+```{r}
+author_pkg_cran_net <- netUtils::bipartite_from_data_frame(author_pkg_cran, "authorsR", "Package")
+A <- as_biadjacency_matrix(author_pkg_cran_net, sparse = TRUE)
+A <- as(A, "sparseMatrix")
+B <- Matrix::t(A) %*% A
+auth_auth_net <- graph_from_adjacency_matrix(B, "undirected", diag = FALSE, weighted = TRUE)
+auth_auth_net
+```
+
+```{r}
+comps_cran <- components(auth_auth_net)
+comps_cran$no
+```
+
+```{r}
+auth_auth_net_largest <- largest_component(auth_auth_net)
+auth_auth_net_largest
+```
+
+> From the `r format(length(unique(author_pkg_cran$authorsR)),big.mark=",")` recorded package authors, `r format(vcount(auth_auth_net_largest),big.mark=",")` (`r round(vcount(auth_auth_net_largest)/length(unique(author_pkg_cran$authorsR))*100,2)`%) are part of the largest connected component. All subsequent analyses will be done with this network.
+
+```{r}
+emax_who <- ends(auth_auth_net_largest, E(auth_auth_net_largest)[which.max(E(auth_auth_net_largest)$weight)])[1, ]
+emax <- max(E(auth_auth_net_largest)$weight)
+```
+
+> On average, every developer in the largest component has `r round(mean(degree(auth_auth_net_largest)),2)` co-authors. The median is `r median(degree(auth_auth_net_largest))`. 
+The two individuals who coauthored the most packages together (`r emax`), are `r emax_who[1]` and `r emax_who[2]`. The person with the most co-authors (`r max(degree(auth_auth_net_largest))`) is `r V(auth_auth_net_largest)$name[which.max(degree(auth_auth_net_largest))]`. What a great transition for the next section.
+
+```{r}
+hadley_idx <- which(V(auth_auth_net_largest)$name == "Hadley Wickham")
+author_tbl <- tibble(
+    name = V(auth_auth_net_largest)$name,
+    dist2HW = distances(auth_auth_net_largest, to = hadley_idx, weights = NA),
+    cc = (1 / closeness(auth_auth_net_largest, weights = NA)) * 1 / vcount(auth_auth_net_largest)
+)
+```
+
+```{r}
+author_tbl |>
+    count(dist2HW) |>
+    ggplot(aes(x = dist2HW, y = n)) +
+    geom_col(color = "white", fill = "black") +
+    theme_minimal() +
+    theme(
+        panel.grid.major.x = element_blank(),
+        panel.grid.minor.x = element_blank(),
+    ) +
+    scale_x_continuous(breaks = seq(0, 10), name = "Hadley Number")
+```
+
+```{r}
+author_tbl |>
+    select(name, centrality = cc) |>
+    dplyr::top_n(10, -centrality) |>
+    dplyr::arrange(centrality) |>
+    knitr::kable()
+```
