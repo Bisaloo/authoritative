@@ -31,6 +31,30 @@ parse_authors_r <- function(authors_r_string) {
     )
 
   authors_persons <- lapply(str2expression(authors_r_string), eval)
+  
+  # Drop extra comments
+  authors_persons[!is.na(authors_persons)] <- lapply(
+    authors_persons[!is.na(authors_persons)],
+    function(x) {
+      # We cannot use *apply() directly because it doesn't recreate a nice
+      # person object (as a list of person objects). Hence why we "manually"
+      # recreate it via c(person, person)
+      do.call(
+        c,
+        # person setter methods lose the comment field names so we unclass() and
+        # reclass instead
+        lapply(x, function(y) {
+          w <- unclass(y)
+          w[[1]]$comment <- y$comment[names(y$comment) %in% c("ORCID", "ROR")]
+          if (length(w[[1]]$comment) == 0) {
+            w[[1]]$comment <- NULL
+          }
+          class(w) <- class(y)
+          return(w)
+        })
+      )
+    }
+  )
 
   if (length(authors_persons) == 1) {
     authors_persons <- authors_persons[[1]]
