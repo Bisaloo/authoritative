@@ -31,7 +31,11 @@ parse_authors_r <- function(authors_r_string) {
     )
 
   authors_persons <- lapply(str2expression(authors_r_string), eval)
-  
+
+  # Malformed Authors@R field
+  is_person <- vapply(authors_persons, \(x) inherits(x, "person"), logical(1))
+  authors_persons[!is_person] <- NA
+
   # Drop extra comments
   authors_persons[!is.na(authors_persons)] <- lapply(
     authors_persons[!is.na(authors_persons)],
