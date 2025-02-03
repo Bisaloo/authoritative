@@ -1,9 +1,12 @@
 Package: authoritative
 Title: Parse and Deduplicate Author Names
 Version: 0.0.0.9000
-Authors@R: 
+Authors@R: c(
     person("Hugo", "Gruson", , "hugo@data.org", role = c("aut", "cre", "cph"),
-           comment = c(ORCID = "0000-0002-4094-1476"))
+           comment = c(ORCID = "0000-0002-4094-1476")),
+    person("Chris", "Hartgerink", role = "rev",
+           comment = c(ORCID = "0000-0003-1050-6809"))
+    )
 Description: Utilities to parse authors fields from DESCRIPTION files and
     general purpose functions to deduplicate names in database, beyond the
     specific case of R package authors.
