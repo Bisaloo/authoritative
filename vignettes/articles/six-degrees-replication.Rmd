@@ -29,7 +29,7 @@ author_pkg_cran <- db |>
   dplyr::mutate(
     authorsR = coalesce(parsed_authors_r, parsed_authors),
     authorsR = map(authorsR, stringi::stri_trans_general, "ASCII"),
-    authorsR = map(authorsR, stringr::str_replace_all, "[[:punct:]`]", " "),
+    authorsR = map(authorsR, stringr::str_replace_all, "[[:punct:]]", " "),
     authorsR = map(authorsR, stringr::str_replace_all, "[[:space:]]+", " "),
     authorsR = map(authorsR, trimws),
     .keep = "unused"
