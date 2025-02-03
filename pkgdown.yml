@@ -4,7 +4,7 @@ pkgdown_sha: ~
 articles:
   authoritative: authoritative.html
   design-principles: design-principles.html
-last_built: 2025-01-18T14:32Z
+last_built: 2025-02-03T08:59Z
 urls:
   reference: https://epiverse-connect.github.io/authoritative/reference
   article: https://epiverse-connect.github.io/authoritative/articles
