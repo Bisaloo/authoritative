@@ -27,7 +27,7 @@
     <a href="https://epiverse-trace.github.io/" class="external-link"><img src="https://epiverse-trace.github.io/blueprints/logo_white.svg" id="logo" alt="Epiverse-TRACE"></a>
     <a class="navbar-brand me-2" href="../index.html">authoritative</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -76,7 +76,7 @@
       <h1>Replication of David Schoch's blog post 'Six degrees of Hadley Wickham: The CRAN co-authorship network'</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/epiverse-connect/authoritative/blob/v0.1.0/vignettes/articles/six-degrees-replication.Rmd" class="external-link"><code>vignettes/articles/six-degrees-replication.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/epiverse-connect/authoritative/blob/main/vignettes/articles/six-degrees-replication.Rmd" class="external-link"><code>vignettes/articles/six-degrees-replication.Rmd</code></a></small>
       <div class="d-none name"><code>six-degrees-replication.Rmd</code></div>
     </div>
 
@@ -164,9 +164,9 @@ degrees of Hadley Wickham: The CRAN co-authorship network”</a> using the
 <span><span class="va">B</span> <span class="op">&lt;-</span> <span class="fu">Matrix</span><span class="fu">::</span><span class="fu">t</span><span class="op">(</span><span class="va">A</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/r/base/matmult.html" class="external-link">%*%</a></span> <span class="va">A</span></span>
 <span><span class="va">auth_auth_net</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r.igraph.org/reference/graph_from_adjacency_matrix.html" class="external-link">graph_from_adjacency_matrix</a></span><span class="op">(</span><span class="va">B</span>, <span class="st">"undirected"</span>, diag <span class="op">=</span> <span class="cn">FALSE</span>, weighted <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="va">auth_auth_net</span></span>
-<span><span class="co">#&gt; IGRAPH 2bbc012 UNW- 27423 152973 -- </span></span>
+<span><span class="co">#&gt; IGRAPH 53a9101 UNW- 27423 152973 -- </span></span>
 <span><span class="co">#&gt; + attr: name (v/c), weight (e/n)</span></span>
-<span><span class="co">#&gt; + edges from 2bbc012 (vertex names):</span></span>
+<span><span class="co">#&gt; + edges from 53a9101 (vertex names):</span></span>
 <span><span class="co">#&gt;  [1] Martin Bladt     --Christian Furrer    </span></span>
 <span><span class="co">#&gt;  [2] Martin Bladt     --Alexander J Mcneil  </span></span>
 <span><span class="co">#&gt;  [3] Martin Bladt     --Jorge Yslas         </span></span>
@@ -183,9 +183,9 @@ degrees of Hadley Wickham: The CRAN co-authorship network”</a> using the
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">auth_auth_net_largest</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r.igraph.org/reference/components.html" class="external-link">largest_component</a></span><span class="op">(</span><span class="va">auth_auth_net</span><span class="op">)</span></span>
 <span><span class="va">auth_auth_net_largest</span></span>
-<span><span class="co">#&gt; IGRAPH 0dceb1a UNW- 16912 137374 -- </span></span>
+<span><span class="co">#&gt; IGRAPH 8b813db UNW- 16912 137374 -- </span></span>
 <span><span class="co">#&gt; + attr: name (v/c), weight (e/n)</span></span>
-<span><span class="co">#&gt; + edges from 0dceb1a (vertex names):</span></span>
+<span><span class="co">#&gt; + edges from 8b813db (vertex names):</span></span>
 <span><span class="co">#&gt;  [1] Martin Bladt  --Christian Furrer      Martin Bladt  --Alexander J Mcneil   </span></span>
 <span><span class="co">#&gt;  [3] Martin Bladt  --Jorge Yslas           Martin Bladt  --Alaric Muller        </span></span>
 <span><span class="co">#&gt;  [5] Sigbert Klinke--Jaroslav Myslivec     Sigbert Klinke--Robert King          </span></span>
