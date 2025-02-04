@@ -27,7 +27,7 @@
     <a href="https://epiverse-trace.github.io/" class="external-link"><img src="https://epiverse-trace.github.io/blueprints/logo_white.svg" id="logo" alt="Epiverse-TRACE"></a>
     <a class="navbar-brand me-2" href="../index.html">authoritative</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -76,7 +76,7 @@
       <h1>Replication of David Schoch's blog post 'Six degrees of Hadley Wickham: The CRAN co-authorship network'</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/epiverse-connect/authoritative/blob/main/vignettes/articles/six-degrees-replication.Rmd" class="external-link"><code>vignettes/articles/six-degrees-replication.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/epiverse-connect/authoritative/blob/v0.1.0/vignettes/articles/six-degrees-replication.Rmd" class="external-link"><code>vignettes/articles/six-degrees-replication.Rmd</code></a></small>
       <div class="d-none name"><code>six-degrees-replication.Rmd</code></div>
     </div>
 
@@ -164,9 +164,9 @@ degrees of Hadley Wickham: The CRAN co-authorship network”</a> using the
 <span><span class="va">B</span> <span class="op">&lt;-</span> <span class="fu">Matrix</span><span class="fu">::</span><span class="fu">t</span><span class="op">(</span><span class="va">A</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/r/base/matmult.html" class="external-link">%*%</a></span> <span class="va">A</span></span>
 <span><span class="va">auth_auth_net</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r.igraph.org/reference/graph_from_adjacency_matrix.html" class="external-link">graph_from_adjacency_matrix</a></span><span class="op">(</span><span class="va">B</span>, <span class="st">"undirected"</span>, diag <span class="op">=</span> <span class="cn">FALSE</span>, weighted <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="va">auth_auth_net</span></span>
-<span><span class="co">#&gt; IGRAPH db26352 UNW- 27421 152965 -- </span></span>
+<span><span class="co">#&gt; IGRAPH 2bbc012 UNW- 27423 152973 -- </span></span>
 <span><span class="co">#&gt; + attr: name (v/c), weight (e/n)</span></span>
-<span><span class="co">#&gt; + edges from db26352 (vertex names):</span></span>
+<span><span class="co">#&gt; + edges from 2bbc012 (vertex names):</span></span>
 <span><span class="co">#&gt;  [1] Martin Bladt     --Christian Furrer    </span></span>
 <span><span class="co">#&gt;  [2] Martin Bladt     --Alexander J Mcneil  </span></span>
 <span><span class="co">#&gt;  [3] Martin Bladt     --Jorge Yslas         </span></span>
@@ -183,9 +183,9 @@ degrees of Hadley Wickham: The CRAN co-authorship network”</a> using the
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">auth_auth_net_largest</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r.igraph.org/reference/components.html" class="external-link">largest_component</a></span><span class="op">(</span><span class="va">auth_auth_net</span><span class="op">)</span></span>
 <span><span class="va">auth_auth_net_largest</span></span>
-<span><span class="co">#&gt; IGRAPH 4d2ce3f UNW- 16911 137367 -- </span></span>
+<span><span class="co">#&gt; IGRAPH 0dceb1a UNW- 16912 137374 -- </span></span>
 <span><span class="co">#&gt; + attr: name (v/c), weight (e/n)</span></span>
-<span><span class="co">#&gt; + edges from 4d2ce3f (vertex names):</span></span>
+<span><span class="co">#&gt; + edges from 0dceb1a (vertex names):</span></span>
 <span><span class="co">#&gt;  [1] Martin Bladt  --Christian Furrer      Martin Bladt  --Alexander J Mcneil   </span></span>
 <span><span class="co">#&gt;  [3] Martin Bladt  --Jorge Yslas           Martin Bladt  --Alaric Muller        </span></span>
 <span><span class="co">#&gt;  [5] Sigbert Klinke--Jaroslav Myslivec     Sigbert Klinke--Robert King          </span></span>
@@ -196,7 +196,7 @@ degrees of Hadley Wickham: The CRAN co-authorship network”</a> using the
 <span><span class="co">#&gt; [15] Wenjie Wang   --Yan Li                Wenjie Wang   --Kun Chen             </span></span>
 <span><span class="co">#&gt; + ... omitted several edges</span></span></code></pre></div>
 <blockquote>
-<p>From the 27,421 recorded package authors, 16,911 (61.67%) are part of
+<p>From the 27,423 recorded package authors, 16,912 (61.67%) are part of
 the largest connected component. All subsequent analyses will be done
 with this network.</p>
 </blockquote>
@@ -243,43 +243,43 @@ transition for the next section.</p>
 <tbody>
 <tr class="odd">
 <td align="left">Hadley Wickham</td>
-<td align="right">2.929336</td>
+<td align="right">2.929340</td>
 </tr>
 <tr class="even">
 <td align="left">Dirk Eddelbuettel</td>
-<td align="right">3.063805</td>
+<td align="right">3.063801</td>
 </tr>
 <tr class="odd">
 <td align="left">Ben Bolker</td>
-<td align="right">3.072793</td>
+<td align="right">3.072789</td>
 </tr>
 <tr class="even">
 <td align="left">Posit Software Pbc</td>
-<td align="right">3.087694</td>
+<td align="right">3.087748</td>
 </tr>
 <tr class="odd">
 <td align="left">Jim Hester</td>
-<td align="right">3.120040</td>
+<td align="right">3.120033</td>
 </tr>
 <tr class="even">
 <td align="left">Romain Francois</td>
-<td align="right">3.131867</td>
+<td align="right">3.131859</td>
 </tr>
 <tr class="odd">
 <td align="left">Martin Maechler</td>
-<td align="right">3.136420</td>
+<td align="right">3.136353</td>
 </tr>
 <tr class="even">
 <td align="left">Kevin Ushey</td>
-<td align="right">3.141328</td>
+<td align="right">3.141320</td>
 </tr>
 <tr class="odd">
 <td align="left">Brian D Ripley</td>
-<td align="right">3.175389</td>
+<td align="right">3.175378</td>
 </tr>
 <tr class="even">
 <td align="left">Henrik Bengtsson</td>
-<td align="right">3.183194</td>
+<td align="right">3.183184</td>
 </tr>
 </tbody>
 </table></main>
