@@ -41,7 +41,7 @@ invert_names <- function(names, correct_names) {
   # Deal with the case where both first last and last first are in correct_names
   inverted_correct <- stringi::stri_replace_all_regex(
     correct_names,
-    "^([^\\s]+)\\s+([^\\s]+)$",
+    "^([^[:space:]]+)[[:space:]]+([^[:space:]]+)$",
     "$2 $1"
   )
   correct_df <- merge(
@@ -58,7 +58,7 @@ invert_names <- function(names, correct_names) {
   # restrict ourselves to the simpler first last == last first
   inverted <- stringi::stri_replace_all_regex(
     names,
-    "^([^\\s]+)\\s+([^\\s]+)$",
+    "^([^[:space:]]+)[[:space:]]+([^[:space:]]+)$",
     "$2 $1"
   )
 
