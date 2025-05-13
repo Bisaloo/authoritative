@@ -31,20 +31,18 @@ This package has two main functionalities:
 
 ## Naming conventions
 
-< Description of the scheme and/or conventions used for naming functions and arguments. This can be the use of a prefix on all exported functions, a name mould ("all function are named verb_object"), or any other naming convention that is used throughout the package. >
+- Functions for deduplication are named `<verb>_names()`.
 
 ## Input/Output/Interoperability
 
-< Describe the data structures (i.e. vectors, `<data.frames>` or classes) that are given as input to the key functions and what data structures the functions return. The design decisions around these I/O choices could also mention how it enhances interoperability with other R packages or pipelines (e.g. with `%>%`). >
+- Functions for deduplication:
+  - take a messy vector of names as first argument
+  - take a source of truth vector of names as second argument
+  - return a cleaned vector of names of the same length as the first argument
 
 ## Design decisions
-
-< A list of bullet points each explaining a design decision and its reasoning. >
 
 ## Dependencies
 
 This package imports stringi as a dependency. Most of the operations performed by the package are string manipulations, and stringi increases performance and readability of the code compared to base R functions.
 
-## Development journey
-
-<  If the package has undergone any large refactoring this section can be used to explain the changes. >
