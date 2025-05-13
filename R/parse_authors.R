@@ -28,11 +28,11 @@
 parse_authors <- function(author_string) {
 
   # Sanitize input from pkgsearch / crandb
-  author_string <- author_string |>
-    stringi::stri_replace_all_fixed(
-      "<U+000a>",
-      " "
-    )
+  author_string <- stringi::stri_replace_all_fixed(
+    author_string,
+    "<U+000a>",
+    " "
+  )
 
   authors_no_brackets <- author_string |>
     remove_brackets("(") |>

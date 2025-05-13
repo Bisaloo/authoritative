@@ -32,9 +32,11 @@ remove_brackets <- function(string, bracket = c("(", "<", "[")) {
     "[" = "]"
   )
 
-  string |>
-    stringi::stri_replace_all_regex(
-      paste0("\\", bracket, "[^", closing_bracket, "]*\\", closing_bracket),
-      ""
-    )
+  unbracketed <- stringi::stri_replace_all_regex(
+    string,
+    paste0("\\", bracket, "[^", closing_bracket, "]*\\", closing_bracket),
+    ""
+  )
+
+  return(unbracketed)
 }

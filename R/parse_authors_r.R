@@ -24,11 +24,11 @@
 #' @export
 parse_authors_r <- function(authors_r_string) {
   # Sanitize input from pkgsearch / crandb
-  authors_r_string <- authors_r_string |>
-    stringi::stri_replace_all_fixed(
-      "<U+000a>",
-      " "
-    )
+  authors_r_string <- stringi::stri_replace_all_fixed(
+    authors_r_string,
+    "<U+000a>",
+    " "
+  )
 
   authors_persons <- lapply(str2expression(authors_r_string), eval)
 
@@ -43,7 +43,7 @@ parse_authors_r <- function(authors_r_string) {
       # We cannot use *apply() directly because it doesn't recreate a nice
       # person object (as a list of person objects). Hence why we "manually"
       # recreate it via c(person, person)
-      do.call(
+      no_comments <- do.call(
         c,
         # person setter methods lose the comment field names so we unclass() and
         # reclass instead
@@ -57,6 +57,7 @@ parse_authors_r <- function(authors_r_string) {
           return(w)
         })
       )
+      return(no_comments)
     }
   )
 

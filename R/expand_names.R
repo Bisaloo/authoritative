@@ -81,7 +81,7 @@ expand_names <- function(short, expanded) {
     if (all(is.na(x))) {
       return(NA)
     }
-    min(x, na.rm = TRUE)
+    return(min(x, na.rm = TRUE))
   })
 
   short[!is.na(longest_match)] <- expanded[longest_match[!is.na(longest_match)]]
