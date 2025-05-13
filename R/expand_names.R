@@ -65,13 +65,6 @@ expand_names <- function(short, expanded) {
       expanded,
       "^((\\w)[^\\s]*(?=\\s)(\\s[^\\s]{2,}(?=\\s))+)\\s[^\\s]+$",
       "$1"
-    ),
-    # Cases that include multiple first or last names are too complex so we
-    # restrict ourselves to the simpler first last == last first
-    last_first = stringi::stri_replace_all_regex(
-      expanded,
-      "^([^\\s]+)\\s+([^\\s]+)$",
-      "$2 $1"
     )
   )
   for (i in seq_along(shortened)) {
