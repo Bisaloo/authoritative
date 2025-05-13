@@ -164,9 +164,9 @@ degrees of Hadley Wickham: The CRAN co-authorship network”</a> using the
 <span><span class="va">B</span> <span class="op">&lt;-</span> <span class="fu">Matrix</span><span class="fu">::</span><span class="fu">t</span><span class="op">(</span><span class="va">A</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/r/base/matmult.html" class="external-link">%*%</a></span> <span class="va">A</span></span>
 <span><span class="va">auth_auth_net</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r.igraph.org/reference/graph_from_adjacency_matrix.html" class="external-link">graph_from_adjacency_matrix</a></span><span class="op">(</span><span class="va">B</span>, <span class="st">"undirected"</span>, diag <span class="op">=</span> <span class="cn">FALSE</span>, weighted <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="va">auth_auth_net</span></span>
-<span><span class="co">#&gt; IGRAPH a98bf25 UNW- 28539 158234 -- </span></span>
+<span><span class="co">#&gt; IGRAPH 3daf36b UNW- 28539 158234 -- </span></span>
 <span><span class="co">#&gt; + attr: name (v/c), weight (e/n)</span></span>
-<span><span class="co">#&gt; + edges from a98bf25 (vertex names):</span></span>
+<span><span class="co">#&gt; + edges from 3daf36b (vertex names):</span></span>
 <span><span class="co">#&gt;  [1] Martin Bladt    --Christian Furrer        </span></span>
 <span><span class="co">#&gt;  [2] Martin Bladt    --Alexander J Mcneil      </span></span>
 <span><span class="co">#&gt;  [3] Martin Bladt    --Jorge Yslas             </span></span>
@@ -183,9 +183,9 @@ degrees of Hadley Wickham: The CRAN co-authorship network”</a> using the
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">auth_auth_net_largest</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r.igraph.org/reference/components.html" class="external-link">largest_component</a></span><span class="op">(</span><span class="va">auth_auth_net</span><span class="op">)</span></span>
 <span><span class="va">auth_auth_net_largest</span></span>
-<span><span class="co">#&gt; IGRAPH c045104 UNW- 17750 142812 -- </span></span>
+<span><span class="co">#&gt; IGRAPH 99187d8 UNW- 17750 142812 -- </span></span>
 <span><span class="co">#&gt; + attr: name (v/c), weight (e/n)</span></span>
-<span><span class="co">#&gt; + edges from c045104 (vertex names):</span></span>
+<span><span class="co">#&gt; + edges from 99187d8 (vertex names):</span></span>
 <span><span class="co">#&gt;  [1] Martin Bladt  --Christian Furrer        </span></span>
 <span><span class="co">#&gt;  [2] Martin Bladt  --Alexander J Mcneil      </span></span>
 <span><span class="co">#&gt;  [3] Martin Bladt  --Jorge Yslas             </span></span>
