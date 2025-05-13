@@ -1,8 +1,16 @@
 # authoritative (development version)
 
-# authoritative 0.1.0
+## New features
 
-# 0.1.0
+* New `invert_names()` will return a cleaned vector of names potentially
+  inverting cases of 'Lastname Firstname' to 'Firstname Lastname'
+  (or the reverse) based on a list of `cleaned_names`.
+  Same as for the `expand_names()` function, the `invert_names(x, x)` can be
+  used to deduplicate names from a vector without an external source of truth
+  (@Bisaloo, #25).
+
+
+# authoritative 0.1.0
 
 * This project now includes a
    [`NEWS.md`](https://r-pkgs.org/other-markdown.html#sec-news) file to inform
