@@ -1,5 +1,4 @@
 test_that("invert_names() detects 'First Last' duplicates of 'Last First'", {
-
   expect_identical(
     invert_names(
       c("Wolfgang Mozart", "Mozart Wolfgang", "Bach Johannes", "Johannes Bach"),
@@ -26,5 +25,4 @@ test_that("invert_names() detects 'First Last' duplicates of 'Last First'", {
     ),
     c(rep_len("Wolfgang Mozart", 2), "Johannes Bach")
   )
-
 })

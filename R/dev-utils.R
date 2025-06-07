@@ -1,6 +1,5 @@
 # This unexported function adds a custom item to `usethis::use_release_issue()`
 release_bullets <- function() {
-
   return(
     c(
       "Run `goodpractice::gp()`",
@@ -9,5 +8,4 @@ release_bullets <- function() {
       "All contributors to this release are acknowledged in some way"
     )
   )
-
 }

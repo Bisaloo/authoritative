@@ -37,7 +37,6 @@
 #' length(unique(epi_pkg_authors_normalized))
 #'
 invert_names <- function(names, correct_names) {
-
   # Deal with the case where both first last and last first are in correct_names
   inverted_correct <- stringi::stri_replace_all_regex(
     correct_names,
@@ -45,7 +44,8 @@ invert_names <- function(names, correct_names) {
     "$2 $1"
   )
   correct_df <- merge(
-    table(correct_names), table(inverted_correct),
+    table(correct_names),
+    table(inverted_correct),
     by.x = "correct_names",
     by.y = "inverted_correct",
     all.x = TRUE
@@ -66,7 +66,5 @@ invert_names <- function(names, correct_names) {
 
   names[!is.na(mtch)] <- correct_names[mtch[!is.na(mtch)]]
 
-
   return(names)
-
 }

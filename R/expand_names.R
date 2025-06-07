@@ -36,7 +36,6 @@
 #' length(unique(epi_pkg_authors_normalized))
 #'
 expand_names <- function(short, expanded) {
-
   # Sort by string length to ensure match() gives priority to expanded names
   expanded <- expanded[order(nchar(expanded), decreasing = TRUE)]
 
