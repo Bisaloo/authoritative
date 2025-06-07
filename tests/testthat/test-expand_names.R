@@ -1,5 +1,4 @@
 test_that("expand_names() transforms matching names", {
-
   # Expanded without middle name
   expect_identical(
     expand_names(

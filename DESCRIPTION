@@ -13,19 +13,19 @@ Description: Utilities to parse authors fields from DESCRIPTION files and
 License: MIT + file LICENSE
 URL: https://github.com/epiverse-connect/authoritative
 BugReports: https://github.com/epiverse-connect/authoritative/issues
-Depends: 
+Depends:
     R (>= 4.1.0)
 Imports:
     stringi,
     utils
-Suggests: 
+Suggests:
     knitr,
     rmarkdown,
     spelling,
     testthat (>= 3.0.0)
-VignetteBuilder: 
+VignetteBuilder:
     knitr
-Config/Needs/website: 
+Config/Needs/website:
     epiverse-trace/epiversetheme,
     tidyverse,
     igraph,

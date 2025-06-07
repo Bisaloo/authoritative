@@ -26,7 +26,8 @@
 remove_brackets <- function(string, bracket = c("(", "<", "[")) {
   bracket <- match.arg(bracket)
 
-  closing_bracket <- switch(bracket,
+  closing_bracket <- switch(
+    bracket,
     "<" = ">",
     "(" = ")",
     "[" = "]"
