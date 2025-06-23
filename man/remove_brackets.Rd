@@ -25,7 +25,7 @@ remove_brackets(
 )
 
 remove_brackets(
-  c("r-project.org <https://r-project.org>", "python.org <https://python.org>"),
+  c("R <https://r-project.org>", "Python <https://python.org>"),
   bracket = "<"
 )
 
