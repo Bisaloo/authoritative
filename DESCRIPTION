@@ -2,7 +2,7 @@ Package: authoritative
 Title: Parse and Deduplicate Author Names
 Version: 0.1.0.9000
 Authors@R: c(
-    person("Hugo", "Gruson", , "hugo@data.org", role = c("aut", "cre", "cph"),
+    person("Hugo", "Gruson", , "hugo.gruson+R@normalesup.org", role = c("aut", "cre", "cph"),
            comment = c(ORCID = "0000-0002-4094-1476")),
     person("Chris", "Hartgerink", role = "rev",
            comment = c(ORCID = "0000-0003-1050-6809"))
