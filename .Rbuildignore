@@ -16,7 +16,7 @@
 ^data-raw$
 ^cran-comments\.md$
 ^vignettes/articles$
-^man/remove_brackets\.Rd$
 ^CRAN-SUBMISSION$
 ^[\.]?air\.toml$
 ^\.vscode$
+^man/remove_brackets\.Rd$
