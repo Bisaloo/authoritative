@@ -19,8 +19,8 @@ authors:
   email: hugo.gruson+R@normalesup.org
   orcid: https://orcid.org/0000-0002-4094-1476
 repository: https://CRAN.R-project.org/package=authoritative
-repository-code: https://github.com/epiverse-connect/authoritative
-url: https://github.com/epiverse-connect/authoritative
+repository-code: https://github.com/Bisaloo/authoritative
+url: https://hugogruson.fr/authoritative/
 contact:
 - family-names: Gruson
   given-names: Hugo
