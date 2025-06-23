@@ -13,8 +13,8 @@ Description: Utilities to parse authors fields from DESCRIPTION files and
     general purpose functions to deduplicate names in database, beyond the
     specific case of R package authors.
 License: MIT + file LICENSE
-URL: https://github.com/epiverse-connect/authoritative
-BugReports: https://github.com/epiverse-connect/authoritative/issues
+URL: https://github.com/Bisaloo/authoritative, https://hugogruson.fr/authoritative/
+BugReports: https://github.com/Bisaloo/authoritative/issues
 Depends:
     R (>= 4.1.0)
 Imports:
