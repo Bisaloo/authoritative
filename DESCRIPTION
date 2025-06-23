@@ -5,7 +5,9 @@ Authors@R: c(
     person("Hugo", "Gruson", , "hugo.gruson+R@normalesup.org", role = c("aut", "cre", "cph"),
            comment = c(ORCID = "0000-0002-4094-1476")),
     person("Chris", "Hartgerink", role = "rev",
-           comment = c(ORCID = "0000-0003-1050-6809"))
+           comment = c(ORCID = "0000-0003-1050-6809")),
+    person("data.org", role = "fnd",
+           comment = "until version 0.2.0 included")
     )
 Description: Utilities to parse authors fields from DESCRIPTION files and
     general purpose functions to deduplicate names in database, beyond the

@@ -22,6 +22,7 @@ Useful links:
 Other contributors:
 \itemize{
   \item Chris Hartgerink (\href{https://orcid.org/0000-0003-1050-6809}{ORCID}) [reviewer]
+  \item data.org (until version 0.2.0 included) [funder]
 }
 
 }
