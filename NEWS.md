@@ -2,9 +2,9 @@
 
 ## New features
 
-* New `invert_names()` will return a cleaned vector of names potentially
-  inverting cases of 'Lastname Firstname' to 'Firstname Lastname'
-  (or the reverse) based on a list of `cleaned_names`.
+* New `invert_names()` function will return a cleaned vector of names
+  potentially inverted occurrences of 'Lastname Firstname' to
+  'Firstname Lastname' (or the reverse) based on a list of `cleaned_names`.
   Same as for the `expand_names()` function, the `invert_names(x, x)` can be
   used to deduplicate names from a vector without an external source of truth
   (@Bisaloo, #25).
