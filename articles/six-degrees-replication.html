@@ -20,7 +20,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">authoritative</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -69,7 +69,7 @@
       <h1>Replication of David Schoch's blog post 'Six degrees of Hadley Wickham: The CRAN co-authorship network'</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/Bisaloo/authoritative/blob/main/vignettes/articles/six-degrees-replication.Rmd" class="external-link"><code>vignettes/articles/six-degrees-replication.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/Bisaloo/authoritative/blob/v0.2.0/vignettes/articles/six-degrees-replication.Rmd" class="external-link"><code>vignettes/articles/six-degrees-replication.Rmd</code></a></small>
       <div class="d-none name"><code>six-degrees-replication.Rmd</code></div>
     </div>
 
@@ -157,39 +157,39 @@ degrees of Hadley Wickham: The CRAN co-authorship network”</a> using the
 <span><span class="va">B</span> <span class="op">&lt;-</span> <span class="fu">Matrix</span><span class="fu">::</span><span class="fu">t</span><span class="op">(</span><span class="va">A</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/r/base/matmult.html" class="external-link">%*%</a></span> <span class="va">A</span></span>
 <span><span class="va">auth_auth_net</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r.igraph.org/reference/graph_from_adjacency_matrix.html" class="external-link">graph_from_adjacency_matrix</a></span><span class="op">(</span><span class="va">B</span>, <span class="st">"undirected"</span>, diag <span class="op">=</span> <span class="cn">FALSE</span>, weighted <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="va">auth_auth_net</span></span>
-<span><span class="co">#&gt; IGRAPH 6bc7354 UNW- 28762 159487 -- </span></span>
+<span><span class="co">#&gt; IGRAPH 2393bee UNW- 28775 159521 -- </span></span>
 <span><span class="co">#&gt; + attr: name (v/c), weight (e/n)</span></span>
-<span><span class="co">#&gt; + edges from 6bc7354 (vertex names):</span></span>
-<span><span class="co">#&gt;  [1] Martin Bladt    --Christian Furrer        </span></span>
-<span><span class="co">#&gt;  [2] Martin Bladt    --Alexander J Mcneil      </span></span>
-<span><span class="co">#&gt;  [3] Martin Bladt    --Jorge Yslas             </span></span>
-<span><span class="co">#&gt;  [4] Martin Bladt    --Alaric Muller           </span></span>
-<span><span class="co">#&gt;  [5] Sigbert Klinke  --Jaroslav Myslivec       </span></span>
-<span><span class="co">#&gt;  [6] Sigbert Klinke  --Robert King             </span></span>
-<span><span class="co">#&gt;  [7] Sigbert Klinke  --Benjamin Dean           </span></span>
-<span><span class="co">#&gt;  [8] Sigbert Klinke  --Paul Van Staden         </span></span>
+<span><span class="co">#&gt; + edges from 2393bee (vertex names):</span></span>
+<span><span class="co">#&gt;  [1] Martin Bladt    --Christian Furrer    Martin Bladt    --Alexander J Mcneil </span></span>
+<span><span class="co">#&gt;  [3] Martin Bladt    --Jorge Yslas         Martin Bladt    --Alaric Muller      </span></span>
+<span><span class="co">#&gt;  [5] Paul R Rosenbaum--Dylan Small         Paul R Rosenbaum--Ruth Heller        </span></span>
+<span><span class="co">#&gt;  [7] Paul R Rosenbaum--Marieke Stolte      Paul R Rosenbaum--Luke Miratrix      </span></span>
+<span><span class="co">#&gt;  [9] Paul R Rosenbaum--Luke Keele          Paul R Rosenbaum--Sam Pimentel       </span></span>
+<span><span class="co">#&gt; [11] Sigbert Klinke  --Jaroslav Myslivec   Sigbert Klinke  --Robert King        </span></span>
+<span><span class="co">#&gt; [13] Sigbert Klinke  --Benjamin Dean       Sigbert Klinke  --Paul Van Staden    </span></span>
+<span><span class="co">#&gt; [15] Sigbert Klinke  --Jekaterina Zukovska</span></span>
 <span><span class="co">#&gt; + ... omitted several edges</span></span></code></pre></div>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">comps_cran</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r.igraph.org/reference/components.html" class="external-link">components</a></span><span class="op">(</span><span class="va">auth_auth_net</span><span class="op">)</span></span>
 <span><span class="va">comps_cran</span><span class="op">$</span><span class="va">no</span></span>
-<span><span class="co">#&gt; [1] 4274</span></span></code></pre></div>
+<span><span class="co">#&gt; [1] 4278</span></span></code></pre></div>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">auth_auth_net_largest</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r.igraph.org/reference/components.html" class="external-link">largest_component</a></span><span class="op">(</span><span class="va">auth_auth_net</span><span class="op">)</span></span>
 <span><span class="va">auth_auth_net_largest</span></span>
-<span><span class="co">#&gt; IGRAPH 42119f1 UNW- 17872 143815 -- </span></span>
+<span><span class="co">#&gt; IGRAPH 6e5b1d6 UNW- 17881 143849 -- </span></span>
 <span><span class="co">#&gt; + attr: name (v/c), weight (e/n)</span></span>
-<span><span class="co">#&gt; + edges from 42119f1 (vertex names):</span></span>
-<span><span class="co">#&gt;  [1] Martin Bladt  --Christian Furrer        </span></span>
-<span><span class="co">#&gt;  [2] Martin Bladt  --Alexander J Mcneil      </span></span>
-<span><span class="co">#&gt;  [3] Martin Bladt  --Jorge Yslas             </span></span>
-<span><span class="co">#&gt;  [4] Martin Bladt  --Alaric Muller           </span></span>
-<span><span class="co">#&gt;  [5] Sigbert Klinke--Jaroslav Myslivec       </span></span>
-<span><span class="co">#&gt;  [6] Sigbert Klinke--Robert King             </span></span>
-<span><span class="co">#&gt;  [7] Sigbert Klinke--Benjamin Dean           </span></span>
-<span><span class="co">#&gt;  [8] Sigbert Klinke--Paul Van Staden         </span></span>
+<span><span class="co">#&gt; + edges from 6e5b1d6 (vertex names):</span></span>
+<span><span class="co">#&gt;  [1] Martin Bladt    --Christian Furrer    Martin Bladt    --Alexander J Mcneil </span></span>
+<span><span class="co">#&gt;  [3] Martin Bladt    --Jorge Yslas         Martin Bladt    --Alaric Muller      </span></span>
+<span><span class="co">#&gt;  [5] Paul R Rosenbaum--Dylan Small         Paul R Rosenbaum--Ruth Heller        </span></span>
+<span><span class="co">#&gt;  [7] Paul R Rosenbaum--Marieke Stolte      Paul R Rosenbaum--Luke Miratrix      </span></span>
+<span><span class="co">#&gt;  [9] Paul R Rosenbaum--Luke Keele          Paul R Rosenbaum--Sam Pimentel       </span></span>
+<span><span class="co">#&gt; [11] Sigbert Klinke  --Jaroslav Myslivec   Sigbert Klinke  --Robert King        </span></span>
+<span><span class="co">#&gt; [13] Sigbert Klinke  --Benjamin Dean       Sigbert Klinke  --Paul Van Staden    </span></span>
+<span><span class="co">#&gt; [15] Sigbert Klinke  --Jekaterina Zukovska</span></span>
 <span><span class="co">#&gt; + ... omitted several edges</span></span></code></pre></div>
 <blockquote>
-<p>From the 28,762 recorded package authors, 17,872 (62.14%) are part of
+<p>From the 28,775 recorded package authors, 17,881 (62.14%) are part of
 the largest connected component. All subsequent analyses will be done
 with this network.</p>
 </blockquote>
@@ -199,8 +199,8 @@ with this network.</p>
 <blockquote>
 <p>On average, every developer in the largest component has 16.09
 co-authors. The median is 7. The two individuals who coauthored the most
-packages together (65), are Posit Software Pbc and Hadley Wickham. The
-person with the most co-authors (875) is Hadley Wickham. What a great
+packages together (66), are Posit Software Pbc and Hadley Wickham. The
+person with the most co-authors (876) is Hadley Wickham. What a great
 transition for the next section.</p>
 </blockquote>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
@@ -236,43 +236,43 @@ transition for the next section.</p>
 <tbody>
 <tr class="odd">
 <td align="left">Hadley Wickham</td>
-<td align="right">2.957587</td>
+<td align="right">2.955931</td>
 </tr>
 <tr class="even">
 <td align="left">Dirk Eddelbuettel</td>
-<td align="right">3.066920</td>
+<td align="right">3.066663</td>
 </tr>
 <tr class="odd">
 <td align="left">Ben Bolker</td>
-<td align="right">3.095680</td>
+<td align="right">3.095464</td>
 </tr>
 <tr class="even">
 <td align="left">Posit Software Pbc</td>
-<td align="right">3.106815</td>
+<td align="right">3.105363</td>
 </tr>
 <tr class="odd">
 <td align="left">Jim Hester</td>
-<td align="right">3.138821</td>
+<td align="right">3.138359</td>
 </tr>
 <tr class="even">
 <td align="left">Martin Maechler</td>
-<td align="right">3.157397</td>
+<td align="right">3.156647</td>
 </tr>
 <tr class="odd">
-<td align="left">Romain Francois</td>
-<td align="right">3.159803</td>
+<td align="left">Kevin Ushey</td>
+<td align="right">3.157318</td>
 </tr>
 <tr class="even">
-<td align="left">Kevin Ushey</td>
-<td align="right">3.162097</td>
+<td align="left">Romain Francois</td>
+<td align="right">3.159555</td>
 </tr>
 <tr class="odd">
 <td align="left">Brian D Ripley</td>
-<td align="right">3.195781</td>
+<td align="right">3.195067</td>
 </tr>
 <tr class="even">
 <td align="left">R Core Team</td>
-<td align="right">3.211280</td>
+<td align="right">3.210894</td>
 </tr>
 </tbody>
 </table></main>
