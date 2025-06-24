@@ -1,6 +1,15 @@
 url: https://hugogruson.fr/authoritative
+
 template:
-  package: epiversetheme
+  bootstrap: 5
+  light-switch: true
+
+  
+authors:
+  Hugo Gruson:
+    href: https://hugogruson.fr
+  data.org:
+    href: https://data.org
 
 # It is recommended to add a pkgdown reference index, grouping the different
 # function into logical sections (e.g., modules).
