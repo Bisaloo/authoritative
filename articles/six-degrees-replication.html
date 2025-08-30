@@ -87,7 +87,7 @@ degrees of Hadley Wickham: The CRAN co-authorship network”</a> using the
 <span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">forcats  </span> 1.0.0     <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">stringr  </span> 1.5.1</span></span>
 <span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">ggplot2  </span> 3.5.2     <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">tibble   </span> 3.3.0</span></span>
 <span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">lubridate</span> 1.9.4     <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">tidyr    </span> 1.3.1</span></span>
-<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">purrr    </span> 1.0.4     </span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">purrr    </span> 1.1.0     </span></span>
 <span><span class="co">#&gt; ── <span style="font-weight: bold;">Conflicts</span> ────────────────────────────────────────── tidyverse_conflicts() ──</span></span>
 <span><span class="co">#&gt; <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">dplyr</span>::<span style="color: #00BB00;">filter()</span> masks <span style="color: #0000BB;">stats</span>::filter()</span></span>
 <span><span class="co">#&gt; <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">dplyr</span>::<span style="color: #00BB00;">lag()</span>    masks <span style="color: #0000BB;">stats</span>::lag()</span></span>
@@ -157,9 +157,9 @@ degrees of Hadley Wickham: The CRAN co-authorship network”</a> using the
 <span><span class="va">B</span> <span class="op">&lt;-</span> <span class="fu">Matrix</span><span class="fu">::</span><span class="fu">t</span><span class="op">(</span><span class="va">A</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/r/base/matmult.html" class="external-link">%*%</a></span> <span class="va">A</span></span>
 <span><span class="va">auth_auth_net</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r.igraph.org/reference/graph_from_adjacency_matrix.html" class="external-link">graph_from_adjacency_matrix</a></span><span class="op">(</span><span class="va">B</span>, <span class="st">"undirected"</span>, diag <span class="op">=</span> <span class="cn">FALSE</span>, weighted <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="va">auth_auth_net</span></span>
-<span><span class="co">#&gt; IGRAPH 8cde193 UNW- 28775 159521 -- </span></span>
+<span><span class="co">#&gt; IGRAPH 3843289 UNW- 29428 167591 -- </span></span>
 <span><span class="co">#&gt; + attr: name (v/c), weight (e/n)</span></span>
-<span><span class="co">#&gt; + edges from 8cde193 (vertex names):</span></span>
+<span><span class="co">#&gt; + edges from 3843289 (vertex names):</span></span>
 <span><span class="co">#&gt;  [1] Martin Bladt    --Christian Furrer    Martin Bladt    --Alexander J Mcneil </span></span>
 <span><span class="co">#&gt;  [3] Martin Bladt    --Jorge Yslas         Martin Bladt    --Alaric Muller      </span></span>
 <span><span class="co">#&gt;  [5] Paul R Rosenbaum--Dylan Small         Paul R Rosenbaum--Ruth Heller        </span></span>
@@ -172,13 +172,13 @@ degrees of Hadley Wickham: The CRAN co-authorship network”</a> using the
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">comps_cran</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r.igraph.org/reference/components.html" class="external-link">components</a></span><span class="op">(</span><span class="va">auth_auth_net</span><span class="op">)</span></span>
 <span><span class="va">comps_cran</span><span class="op">$</span><span class="va">no</span></span>
-<span><span class="co">#&gt; [1] 4278</span></span></code></pre></div>
+<span><span class="co">#&gt; [1] 4367</span></span></code></pre></div>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">auth_auth_net_largest</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r.igraph.org/reference/components.html" class="external-link">largest_component</a></span><span class="op">(</span><span class="va">auth_auth_net</span><span class="op">)</span></span>
 <span><span class="va">auth_auth_net_largest</span></span>
-<span><span class="co">#&gt; IGRAPH 43018bb UNW- 17881 143849 -- </span></span>
+<span><span class="co">#&gt; IGRAPH 38880fc UNW- 18411 152304 -- </span></span>
 <span><span class="co">#&gt; + attr: name (v/c), weight (e/n)</span></span>
-<span><span class="co">#&gt; + edges from 43018bb (vertex names):</span></span>
+<span><span class="co">#&gt; + edges from 38880fc (vertex names):</span></span>
 <span><span class="co">#&gt;  [1] Martin Bladt    --Christian Furrer    Martin Bladt    --Alexander J Mcneil </span></span>
 <span><span class="co">#&gt;  [3] Martin Bladt    --Jorge Yslas         Martin Bladt    --Alaric Muller      </span></span>
 <span><span class="co">#&gt;  [5] Paul R Rosenbaum--Dylan Small         Paul R Rosenbaum--Ruth Heller        </span></span>
@@ -189,7 +189,7 @@ degrees of Hadley Wickham: The CRAN co-authorship network”</a> using the
 <span><span class="co">#&gt; [15] Sigbert Klinke  --Jekaterina Zukovska</span></span>
 <span><span class="co">#&gt; + ... omitted several edges</span></span></code></pre></div>
 <blockquote>
-<p>From the 28,775 recorded package authors, 17,881 (62.14%) are part of
+<p>From the 29,428 recorded package authors, 18,411 (62.56%) are part of
 the largest connected component. All subsequent analyses will be done
 with this network.</p>
 </blockquote>
@@ -197,10 +197,10 @@ with this network.</p>
 <code class="sourceCode R"><span><span class="va">emax_who</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r.igraph.org/reference/ends.html" class="external-link">ends</a></span><span class="op">(</span><span class="va">auth_auth_net_largest</span>, <span class="fu"><a href="https://r.igraph.org/reference/E.html" class="external-link">E</a></span><span class="op">(</span><span class="va">auth_auth_net_largest</span><span class="op">)</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/which.min.html" class="external-link">which.max</a></span><span class="op">(</span><span class="fu"><a href="https://r.igraph.org/reference/E.html" class="external-link">E</a></span><span class="op">(</span><span class="va">auth_auth_net_largest</span><span class="op">)</span><span class="op">$</span><span class="va">weight</span><span class="op">)</span><span class="op">]</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span>, <span class="op">]</span></span>
 <span><span class="va">emax</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">max</a></span><span class="op">(</span><span class="fu"><a href="https://r.igraph.org/reference/E.html" class="external-link">E</a></span><span class="op">(</span><span class="va">auth_auth_net_largest</span><span class="op">)</span><span class="op">$</span><span class="va">weight</span><span class="op">)</span></span></code></pre></div>
 <blockquote>
-<p>On average, every developer in the largest component has 16.09
+<p>On average, every developer in the largest component has 16.54
 co-authors. The median is 7. The two individuals who coauthored the most
 packages together (66), are Posit Software Pbc and Hadley Wickham. The
-person with the most co-authors (876) is Hadley Wickham. What a great
+person with the most co-authors (877) is Hadley Wickham. What a great
 transition for the next section.</p>
 </blockquote>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
@@ -236,43 +236,43 @@ transition for the next section.</p>
 <tbody>
 <tr class="odd">
 <td align="left">Hadley Wickham</td>
-<td align="right">2.955931</td>
+<td align="right">2.958775</td>
 </tr>
 <tr class="even">
 <td align="left">Dirk Eddelbuettel</td>
-<td align="right">3.066663</td>
+<td align="right">3.060833</td>
 </tr>
 <tr class="odd">
 <td align="left">Ben Bolker</td>
-<td align="right">3.095464</td>
+<td align="right">3.092934</td>
 </tr>
 <tr class="even">
 <td align="left">Posit Software Pbc</td>
-<td align="right">3.105363</td>
+<td align="right">3.105209</td>
 </tr>
 <tr class="odd">
-<td align="left">Jim Hester</td>
-<td align="right">3.138359</td>
+<td align="left">Martin Maechler</td>
+<td align="right">3.137418</td>
 </tr>
 <tr class="even">
-<td align="left">Martin Maechler</td>
-<td align="right">3.156647</td>
+<td align="left">Jim Hester</td>
+<td align="right">3.141274</td>
 </tr>
 <tr class="odd">
 <td align="left">Kevin Ushey</td>
-<td align="right">3.157318</td>
+<td align="right">3.148824</td>
 </tr>
 <tr class="even">
 <td align="left">Romain Francois</td>
-<td align="right">3.159555</td>
+<td align="right">3.155722</td>
 </tr>
 <tr class="odd">
 <td align="left">Brian D Ripley</td>
-<td align="right">3.195067</td>
+<td align="right">3.191679</td>
 </tr>
 <tr class="even">
-<td align="left">R Core Team</td>
-<td align="right">3.210894</td>
+<td align="left">Yihui Xie</td>
+<td align="right">3.206290</td>
 </tr>
 </tbody>
 </table></main>
