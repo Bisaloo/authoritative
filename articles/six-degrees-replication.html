@@ -157,9 +157,9 @@ degrees of Hadley Wickham: The CRAN co-authorship network”</a> using the
 <span><span class="va">B</span> <span class="op">&lt;-</span> <span class="fu">Matrix</span><span class="fu">::</span><span class="fu">t</span><span class="op">(</span><span class="va">A</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/r/base/matmult.html" class="external-link">%*%</a></span> <span class="va">A</span></span>
 <span><span class="va">auth_auth_net</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r.igraph.org/reference/graph_from_adjacency_matrix.html" class="external-link">graph_from_adjacency_matrix</a></span><span class="op">(</span><span class="va">B</span>, <span class="st">"undirected"</span>, diag <span class="op">=</span> <span class="cn">FALSE</span>, weighted <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="va">auth_auth_net</span></span>
-<span><span class="co">#&gt; IGRAPH 3843289 UNW- 29428 167591 -- </span></span>
+<span><span class="co">#&gt; IGRAPH 51de6b0 UNW- 29486 167611 -- </span></span>
 <span><span class="co">#&gt; + attr: name (v/c), weight (e/n)</span></span>
-<span><span class="co">#&gt; + edges from 3843289 (vertex names):</span></span>
+<span><span class="co">#&gt; + edges from 51de6b0 (vertex names):</span></span>
 <span><span class="co">#&gt;  [1] Martin Bladt    --Christian Furrer    Martin Bladt    --Alexander J Mcneil </span></span>
 <span><span class="co">#&gt;  [3] Martin Bladt    --Jorge Yslas         Martin Bladt    --Alaric Muller      </span></span>
 <span><span class="co">#&gt;  [5] Paul R Rosenbaum--Dylan Small         Paul R Rosenbaum--Ruth Heller        </span></span>
@@ -172,13 +172,13 @@ degrees of Hadley Wickham: The CRAN co-authorship network”</a> using the
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">comps_cran</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r.igraph.org/reference/components.html" class="external-link">components</a></span><span class="op">(</span><span class="va">auth_auth_net</span><span class="op">)</span></span>
 <span><span class="va">comps_cran</span><span class="op">$</span><span class="va">no</span></span>
-<span><span class="co">#&gt; [1] 4367</span></span></code></pre></div>
+<span><span class="co">#&gt; [1] 4374</span></span></code></pre></div>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">auth_auth_net_largest</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r.igraph.org/reference/components.html" class="external-link">largest_component</a></span><span class="op">(</span><span class="va">auth_auth_net</span><span class="op">)</span></span>
 <span><span class="va">auth_auth_net_largest</span></span>
-<span><span class="co">#&gt; IGRAPH 38880fc UNW- 18411 152304 -- </span></span>
+<span><span class="co">#&gt; IGRAPH dc9e2a8 UNW- 18454 152313 -- </span></span>
 <span><span class="co">#&gt; + attr: name (v/c), weight (e/n)</span></span>
-<span><span class="co">#&gt; + edges from 38880fc (vertex names):</span></span>
+<span><span class="co">#&gt; + edges from dc9e2a8 (vertex names):</span></span>
 <span><span class="co">#&gt;  [1] Martin Bladt    --Christian Furrer    Martin Bladt    --Alexander J Mcneil </span></span>
 <span><span class="co">#&gt;  [3] Martin Bladt    --Jorge Yslas         Martin Bladt    --Alaric Muller      </span></span>
 <span><span class="co">#&gt;  [5] Paul R Rosenbaum--Dylan Small         Paul R Rosenbaum--Ruth Heller        </span></span>
@@ -189,7 +189,7 @@ degrees of Hadley Wickham: The CRAN co-authorship network”</a> using the
 <span><span class="co">#&gt; [15] Sigbert Klinke  --Jekaterina Zukovska</span></span>
 <span><span class="co">#&gt; + ... omitted several edges</span></span></code></pre></div>
 <blockquote>
-<p>From the 29,428 recorded package authors, 18,411 (62.56%) are part of
+<p>From the 29,486 recorded package authors, 18,454 (62.59%) are part of
 the largest connected component. All subsequent analyses will be done
 with this network.</p>
 </blockquote>
@@ -197,7 +197,7 @@ with this network.</p>
 <code class="sourceCode R"><span><span class="va">emax_who</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r.igraph.org/reference/ends.html" class="external-link">ends</a></span><span class="op">(</span><span class="va">auth_auth_net_largest</span>, <span class="fu"><a href="https://r.igraph.org/reference/E.html" class="external-link">E</a></span><span class="op">(</span><span class="va">auth_auth_net_largest</span><span class="op">)</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/which.min.html" class="external-link">which.max</a></span><span class="op">(</span><span class="fu"><a href="https://r.igraph.org/reference/E.html" class="external-link">E</a></span><span class="op">(</span><span class="va">auth_auth_net_largest</span><span class="op">)</span><span class="op">$</span><span class="va">weight</span><span class="op">)</span><span class="op">]</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span>, <span class="op">]</span></span>
 <span><span class="va">emax</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">max</a></span><span class="op">(</span><span class="fu"><a href="https://r.igraph.org/reference/E.html" class="external-link">E</a></span><span class="op">(</span><span class="va">auth_auth_net_largest</span><span class="op">)</span><span class="op">$</span><span class="va">weight</span><span class="op">)</span></span></code></pre></div>
 <blockquote>
-<p>On average, every developer in the largest component has 16.54
+<p>On average, every developer in the largest component has 16.51
 co-authors. The median is 7. The two individuals who coauthored the most
 packages together (66), are Posit Software Pbc and Hadley Wickham. The
 person with the most co-authors (877) is Hadley Wickham. What a great
@@ -236,11 +236,11 @@ transition for the next section.</p>
 <tbody>
 <tr class="odd">
 <td align="left">Hadley Wickham</td>
-<td align="right">2.958775</td>
+<td align="right">2.958925</td>
 </tr>
 <tr class="even">
 <td align="left">Dirk Eddelbuettel</td>
-<td align="right">3.060833</td>
+<td align="right">3.060908</td>
 </tr>
 <tr class="odd">
 <td align="left">Ben Bolker</td>
@@ -248,31 +248,31 @@ transition for the next section.</p>
 </tr>
 <tr class="even">
 <td align="left">Posit Software Pbc</td>
-<td align="right">3.105209</td>
+<td align="right">3.104693</td>
 </tr>
 <tr class="odd">
 <td align="left">Martin Maechler</td>
-<td align="right">3.137418</td>
+<td align="right">3.137423</td>
 </tr>
 <tr class="even">
 <td align="left">Jim Hester</td>
-<td align="right">3.141274</td>
+<td align="right">3.140349</td>
 </tr>
 <tr class="odd">
 <td align="left">Kevin Ushey</td>
-<td align="right">3.148824</td>
+<td align="right">3.149507</td>
 </tr>
 <tr class="even">
 <td align="left">Romain Francois</td>
-<td align="right">3.155722</td>
+<td align="right">3.155088</td>
 </tr>
 <tr class="odd">
 <td align="left">Brian D Ripley</td>
-<td align="right">3.191679</td>
+<td align="right">3.191774</td>
 </tr>
 <tr class="even">
 <td align="left">Yihui Xie</td>
-<td align="right">3.206290</td>
+<td align="right">3.205972</td>
 </tr>
 </tbody>
 </table></main>
