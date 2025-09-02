@@ -46,7 +46,8 @@ pkg_description <- system.file("DESCRIPTION", package = "authoritative")
 authors_r_pkg <- read.dcf(pkg_description, "Authors@R")
 parse_authors_r(authors_r_pkg)
 #> [1] "Hugo Gruson <hugo.gruson+R@normalesup.org> [aut, cre, cph] (ORCID: <https://orcid.org/0000-0002-4094-1476>)"
-#> [2] "Chris Hartgerink [rev] (ORCID: <https://orcid.org/0000-0003-1050-6809>)"
+#> [2] "Chris Hartgerink [rev] (ORCID: <https://orcid.org/0000-0003-1050-6809>)"                                    
+#> [3] "data.org [fnd]"
 ```
 
 ## Development
